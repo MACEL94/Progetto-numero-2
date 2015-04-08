@@ -3,3 +3,7 @@
 \contentsline {subsection}{\numberline {2.1}Input}{2}
 \contentsline {subsection}{\numberline {2.2}Output}{2}
 \contentsline {subsection}{\numberline {2.3}Relazioni tra input ed output}{2}
+\contentsline {section}{\numberline {3}Progettazione dell'algoritmo}{3}
+\contentsline {subsection}{\numberline {3.1}Scelte di progetto}{3}
+\contentsline {subsection}{\numberline {3.2}Passi del programma}{3}
+\contentsline {section}{\numberline {4}Implementazione dell'algoritmo}{3}

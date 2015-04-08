@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  3 APR 2015 16:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  8 APR 2015 17:29
 entering extended mode
 **relazione.tex
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.tex
@@ -409,24 +409,35 @@ della chiusura dell'insieme
  []
 
 
-Overfull \hbox (25.92711pt too wide) in paragraph at lines 86--91
+Overfull \hbox (25.92711pt too wide) in paragraph at lines 86--93
 \OT1/cmr/m/n/10.95 ven-gono uti-liz-zati come operandi per l'operazione im-mess
 a, si dice che l'operazione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
+Underfull \hbox (badness 10000) in paragraph at lines 86--93
 
  []
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
+
+ []
+
+
+Overfull \hbox (3.84464pt too wide) in paragraph at lines 107--109
+\OT1/cmr/m/n/10.95 Questa e la traduzione dei passi in C: qui ci dob-bi-amo st
+am-pare il pro-gramma. 
+ []
+
+[3]
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.aux)
  ) 
 Here is how much of TeX's memory you used:
- 3943 strings out of 493921
- 54394 string characters out of 3144865
+ 3944 strings out of 493921
+ 54402 string characters out of 3144865
  114446 words of memory out of 3000000
- 7217 multiletter control sequences out of 15000+200000
+ 7218 multiletter control sequences out of 15000+200000
  10053 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  37i,6n,39p,288b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -435,9 +446,9 @@ Here is how much of TeX's memory you used:
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
 /Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on relazione.pdf (4 pages, 73997 bytes).
+Output written on relazione.pdf (5 pages, 77839 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
+ 38 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
