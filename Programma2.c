@@ -39,7 +39,7 @@ typedef struct Insieme{
 
 insieme_t acquisisci_insieme(void);
 rel_bin acquisisci_rel_bin(insieme_t); 
-void crea_insieme_vuoto(void);
+insieme_t crea_insieme_vuoto(void);
 int acquisisci_elemento(insieme_t);
 void stampa(rel_bin);
 
@@ -83,9 +83,8 @@ int main(){
 	}
 	if(scelta==2)
 		crea_insieme_vuoto();
-	if(scelta==3)
-	return 0;
 	}
+	return 0;
 }
 
 
@@ -138,11 +137,12 @@ insieme_t acquisisci_insieme(){
 		printf("\n Digitare ora il %d elemento: ",i+1);
 		elemento_acquisito = scanf("%d",&temporaneo);
 		
-		if(elemento_acquisito != 1)
+		if(elemento_acquisito != 1){
 		do
             	carattere_non_letto = getchar();
         while (carattere_non_letto != '\n');
-        
+    	i--;
+		}
 		if(temporaneo == 0){
 			finisci_di_acquisire = 1;
 			insieme.numero_elementi = i;
@@ -173,7 +173,11 @@ insieme_t acquisisci_insieme(){
 return insieme;
 }
 
-void crea_insieme_vuoto(){
+insieme_t crea_insieme_vuoto(){
+	insieme_t insieme;
+	insieme.elementi_insieme = (int *) malloc (1);
+	insieme.numero_elementi = 0;
+	return insieme;
 }
 
 rel_bin acquisisci_rel_bin(insieme_t insieme){
@@ -181,19 +185,16 @@ rel_bin acquisisci_rel_bin(insieme_t insieme){
 	
 	int acquisizione_finita,
         risultato_lettura,
-        primo_termine_acquisito,
-        i;
+        primo_termine_acquisito;
 
-    char temporaneo,
-         carattere_non_letto;
+    char carattere_non_letto;
 
     acquisizione_finita = 0;
     primo_termine_acquisito = 0;
-    i=0;
 
     relazione.dimensione = 0;
-    relazione.primo_termine = (double *) malloc (2);
-    relazione.secondo_termine = (double *) malloc (2);
+    relazione.primo_termine = (int *) malloc (2);
+    relazione.secondo_termine = (int *) malloc (2);
             while (acquisizione_finita == 0)
         {
             primo_termine_acquisito = 0;
@@ -203,10 +204,10 @@ rel_bin acquisisci_rel_bin(insieme_t insieme){
             /*Acquisisco i termini della coppia*/
 
             printf ("\n Inserisci i termini della coppia \n ");
-            relazione.primo_termine = (double *) realloc (relazione.primo_termine,
-				(relazione.dimensione+1) * sizeof (double));
-            relazione.secondo_termine = (double *) realloc (relazione.secondo_termine,
-				(relazione.dimensione+1) * sizeof (double));
+            relazione.primo_termine = (int *) realloc (relazione.primo_termine,
+				(relazione.dimensione+1) * sizeof (int));
+            relazione.secondo_termine = (int *) realloc (relazione.secondo_termine,
+				(relazione.dimensione+1) * sizeof (int));
             risultato_lettura = 0;
 
 
@@ -233,11 +234,11 @@ rel_bin acquisisci_rel_bin(insieme_t insieme){
                 printf ("\n scelta: ");
                 risultato_lettura = scanf ("%d",
                                            &acquisizione_finita);
-                if (acquisizione_finita < 0 || acquisizione_finita > 1 )
-                    do
+				if (acquisizione_finita < 0 || acquisizione_finita > 1 || risultato_lettura != 1)
+					do
                         carattere_non_letto = getchar();
                     while (carattere_non_letto != '\n');
-            }
+           	}
             while (acquisizione_finita < 0 || acquisizione_finita > 1 );
         }
         return relazione;
@@ -263,7 +264,7 @@ void stampa (rel_bin stampa)
             i++;
         }
     printf("}\n");
-return 0;
+return ;
 }
 
 int acquisisci_elemento(insieme_t insieme){
