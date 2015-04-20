@@ -42,6 +42,7 @@ rel_bin acquisisci_rel_bin(insieme_t);
 insieme_t crea_insieme_vuoto(void);
 int acquisisci_elemento(insieme_t);
 void stampa(rel_bin);
+void acquisisci_operazione();
 
 /*****************/
 /* funzione main */
@@ -77,9 +78,10 @@ int main(){
             scelta=4;
     	}
 	if(scelta==1){
-		insieme = acquisisci_insieme();
-		relazione = acquisisci_rel_bin(insieme);
-		stampa(relazione);
+//		insieme = acquisisci_insieme();
+//		relazione = acquisisci_rel_bin(insieme);
+//		stampa(relazione);
+		acquisisci_operazione();
 	}
 	if(scelta==2)
 		crea_insieme_vuoto();
@@ -304,4 +306,35 @@ int acquisisci_elemento(insieme_t insieme){
 	return elemento;
 }
 
-
+void acquisisci_operazione(){
+	char carattere_non_letto;
+	int scelta,
+	lettura_corretta;
+	printf("\n Inserire ora il numero corrispondente all' operazione desiderata:\n");
+	printf("\n 1 - Somma\n 2 - Differenza\n 3 - Moltiplicazione\n 4 - Divisione\n\n");
+	scelta = 0;
+	do{
+		printf(" Scelta: ");
+		lettura_corretta = scanf("%d",&scelta);
+		if(lettura_corretta == 0){
+			do
+    	        carattere_non_letto = getchar();
+    	    while (carattere_non_letto != '\n');
+    	}
+	}while(lettura_corretta == 0 || (scelta != 1 && scelta != 2 && scelta != 3 && scelta != 4));
+	switch(scelta){
+		case 1:
+			printf("\n E' stata scelta la Somma\n");
+			break;
+		case 2:
+			printf("\n E' stata scelta la Differenza\n");
+			break;
+		case 3:
+			printf("\n E' stata scelta la Moltiplicazione\n");
+			break;
+		case 4:
+			printf("\n E' stata scelta la Divisione\n");
+			break;
+	}
+	
+}
