@@ -64,7 +64,7 @@ int controllo(insieme_t, double);
 int main()
 {
     char carattere_non_letto;
-    int scelta,
+	int scelta,
         operazione,
         lettura_effettuata;
 
@@ -131,7 +131,7 @@ insieme_t acquisisci_insieme()
     elemento_acquisito = 0;
     i = 0;
     zeri = 0;
-    temporaneo = 0;
+    temporaneo = 1;
     insieme.numero_elementi = 50;
     finisci_di_acquisire = 0;
 
@@ -145,7 +145,15 @@ insieme_t acquisisci_insieme()
     /*chiedo se l'utente vuole inserire lo 0*/
 
     printf("\n Premere il numero di zeri presenti nell'insieme: ");
-    scanf("%d",&zeri);
+	do{
+		elemento_acquisito = scanf("%d",&zeri);
+        if(elemento_acquisito != 1)
+        {
+            do
+                carattere_non_letto = getchar();
+            while (carattere_non_letto != '\n');
+        }
+	}while(elemento_acquisito != 1);
     while (i < zeri && zeri > 0)
     {
         insieme.elementi_insieme = (double *) realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
@@ -162,14 +170,14 @@ insieme_t acquisisci_insieme()
     {
         insieme.elementi_insieme = (double *) realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
         printf("\n Digitare ora il %d elemento: ",i+1);
-        elemento_acquisito = scanf("%d",&temporaneo);
+        elemento_acquisito = scanf("%lf",&temporaneo);
 
         if(elemento_acquisito != 1)
         {
             do
                 carattere_non_letto = getchar();
             while (carattere_non_letto != '\n');
-            i--;
+			i--;
         }
         if(temporaneo == 0)
         {
@@ -177,6 +185,7 @@ insieme_t acquisisci_insieme()
             insieme.numero_elementi = i;
         }
         else
+		if(i >= 0)
             insieme.elementi_insieme[i] = temporaneo;
         i++;
     }
@@ -191,7 +200,7 @@ insieme_t acquisisci_insieme()
     i=0;
     while(i < insieme.numero_elementi)
     {
-        printf("%d",insieme.elementi_insieme[i]);
+        printf("%lf",insieme.elementi_insieme[i]);
         if(i+1 < insieme.numero_elementi)
             printf(" ; ");
         i++;
@@ -290,7 +299,7 @@ void stampa (rel_bin stampa)
 
     while (i < stampa.dimensione)
     {
-        printf ("(%d,%d)",stampa.primo_termine[i],stampa.secondo_termine[i]);
+        printf ("(%lf,%lf)",stampa.primo_termine[i],stampa.secondo_termine[i]);
         if (i+1 != stampa.dimensione)
             printf (" ; ");
         i++;
@@ -324,7 +333,7 @@ int acquisisci_elemento(insieme_t insieme)
             printf ("\n C'e'un errore, reinserire il termine e verificare\n");
             printf(" che appartenga all'insieme precedentemente inserito: \n ");
         }
-        lettura_corretta = scanf("%d",&elemento);
+        lettura_corretta = scanf("%lf",&elemento);
         /* verifico se l'elemento che si vuole utilizzare nella relazione */
         /* e' presente nell'insieme inserito */
         elemento_trovato = 0;
@@ -385,7 +394,7 @@ int acquisisci_operazione()
 
 void controllo_chiusura(int operazione, insieme_t insieme)
 {
-    int i,j,k,chiusura;
+    int i,j,chiusura;
     double risultato;
     divisione_t div;
 
@@ -455,9 +464,9 @@ void controllo_chiusura(int operazione, insieme_t insieme)
 
 
     if(chiusura == 0)
-        printf("\n l'insieme non e' chiuso rispetto all'operazione");
+        printf("\n L'insieme non e' chiuso rispetto all'operazione");
     else
-        printf("\n l'insieme e' chiuso rispetto all'operazione");
+        printf("\n L'insieme e' chiuso rispetto all'operazione");
 
     return;
 }
@@ -470,7 +479,7 @@ double somma (double primo_termine, double secondo_termine)
 
     somma = primo_termine + secondo_termine;
 
-
+	return somma;
 }
 
 double sottrazione (double primo_termine, double secondo_termine)
