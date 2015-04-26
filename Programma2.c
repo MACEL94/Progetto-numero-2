@@ -400,7 +400,8 @@ void controllo_chiusura(int operazione, insieme_t insieme)
             {
                 risultato = somma(insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
                 chiusura = controllo(insieme,risultato);
-                if(chiusura == 0){
+                if(chiusura == 0)
+                {
                     j = insieme.numero_elementi;
                     i = insieme.numero_elementi;
                 }
@@ -413,7 +414,8 @@ void controllo_chiusura(int operazione, insieme_t insieme)
             {
                 risultato = sottrazione(insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
                 chiusura = controllo(insieme,risultato);
-                if(chiusura == 0){
+                if(chiusura == 0)
+                {
                     j = insieme.numero_elementi;
                     i = insieme.numero_elementi;
                 }
@@ -426,10 +428,11 @@ void controllo_chiusura(int operazione, insieme_t insieme)
             {
                 risultato = moltiplicazione(insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
                 chiusura = controllo(insieme,risultato);
-                if(chiusura == 0){
+                if(chiusura == 0)
+                {
                     j = insieme.numero_elementi;
                     i = insieme.numero_elementi;
-            }
+                }
             }
 
         break;
@@ -440,7 +443,8 @@ void controllo_chiusura(int operazione, insieme_t insieme)
             {
                 div.risultato = divisione(insieme.elementi_insieme[i],insieme.elementi_insieme[j]).risultato;
                 chiusura = controllo(insieme,div.risultato);
-                if(chiusura == 0 || div.buon_fine == 0){
+                if(chiusura == 0 || div.buon_fine == 0)
+                {
                     j = insieme.numero_elementi;
                     i = insieme.numero_elementi;
                 }
@@ -492,11 +496,13 @@ divisione_t divisione (double primo_termine, double secondo_termine)
 {
     divisione_t div;
 
-    if(secondo_termine != 0){
+    if(secondo_termine != 0)
+    {
         div.buon_fine = 1;
         div.risultato = primo_termine / secondo_termine;
     }
-    else{
+    else
+    {
         div.buon_fine = 0;
         printf( "\n errore, un denominatore risulta essere uguale a 0\n");
     }
