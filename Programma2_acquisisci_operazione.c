@@ -27,13 +27,13 @@ typedef struct relBin
     int dimensione;
 
 } rel_bin;
-
+/*
 typedef struct divisione
 {
     double risultato;
     int buon_fine;
 } divisione_t;
-
+*/
 typedef struct Insieme
 {
     double* elementi_insieme;
@@ -49,12 +49,12 @@ rel_bin acquisisci_rel_bin(insieme_t);
 insieme_t crea_insieme_vuoto(void);
 int acquisisci_elemento(insieme_t);
 void stampa(rel_bin);
-int acquisisci_operazione();
-void controllo_chiusura(int,insieme_t);
-double somma(double,double);
-divisione_t divisione(double,double);
-double sottrazione(double,double);
-double moltiplicazione(double,double);
+double* acquisisci_operazione(insieme_t);
+void controllo_chiusura(insieme_t,double *);
+//double somma(double,double);
+//divisione_t divisione(double,double);
+//double sottrazione(double,double);
+//double moltiplicazione(double,double);
 int controllo(insieme_t, double);
 
 /*****************/
@@ -64,8 +64,8 @@ int controllo(insieme_t, double);
 int main()
 {
     char carattere_non_letto;
+    double *risultati;
 	int scelta,
-        operazione,
         lettura_effettuata;
 
     /* variabili per insieme e relazione */
@@ -99,8 +99,8 @@ int main()
             insieme = acquisisci_insieme();
             relazione = acquisisci_rel_bin(insieme);
             stampa(relazione);
-            operazione = acquisisci_operazione();
-            controllo_chiusura(operazione,insieme);
+			risultati = acquisisci_operazione(insieme);
+            controllo_chiusura(insieme, risultati);
         }
         if(scelta==2)
             crea_insieme_vuoto();
@@ -352,6 +352,54 @@ int acquisisci_elemento(insieme_t insieme)
 
 /* Acquisisco l'operazione*/
 
+double* acquisisci_operazione(insieme_t insieme){
+	int i,
+		j,
+		dimensione;
+	double *risultati;
+	i=0;
+	j=0;
+	dimensione=0;
+	risultati = (double *) malloc (2);
+ 	printf(" Inserire ora l'operazione: \n");
+	for(i = 0; i < insieme.numero_elementi; i++){
+        for(j = 0; j < insieme.numero_elementi; j++){
+        	risultati = (double *) realloc (risultati, (dimensione+1) * sizeof (double));
+			printf("\n %f * %f = ",insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
+			scanf("%lf",&risultati[dimensione]);
+			dimensione++;
+		}
+	}
+	return risultati;
+}
+
+void controllo_chiusura(insieme_t insieme,double *risultati){
+int i,
+	j,
+	chiusura;
+i=0;
+j=0;
+chiusura=0;
+for(i=0;i<(insieme.numero_elementi*insieme.numero_elementi);i++)
+	for(j=0;j<insieme.numero_elementi;j++){
+		if(risultati[i] == insieme.elementi_insieme[j]){
+			j=insieme.numero_elementi;
+			chiusura = 1;
+		}
+	if(chiusura == 0)
+	i=(insieme.numero_elementi*insieme.numero_elementi);
+	}
+	if(chiusura == 0)
+	printf("\n La chiusura non e' verificata");
+	if(chiusura ==1)
+	printf("\n La chiusura e' verificata");
+
+	return;
+}
+
+
+
+/*
 int acquisisci_operazione()
 {
     char carattere_non_letto;
@@ -389,9 +437,9 @@ int acquisisci_operazione()
     }
     return(scelta);
 }
-
+*/
 /*inizio il controllo della chiusura*/
-
+/*
 void controllo_chiusura(int operazione, insieme_t insieme)
 {
     int i,j,chiusura;
@@ -472,7 +520,6 @@ void controllo_chiusura(int operazione, insieme_t insieme)
 }
 
 
-
 double somma (double primo_termine, double secondo_termine)
 {
     int somma;
@@ -517,7 +564,7 @@ divisione_t divisione (double primo_termine, double secondo_termine)
     }
     return(div);
 }
-
+*/
 /*controllo che l'elemento appartenga all'insieme*/
 
 int controllo (insieme_t insieme, double risultato)
@@ -534,4 +581,5 @@ int controllo (insieme_t insieme, double risultato)
 
     return(chiusura);
 }
+
 
