@@ -47,7 +47,7 @@ typedef struct Insieme
 int controllo_simmetria (rel_bin);
 int controllo_riflessivita (rel_bin);
 int controllo_transitivita (rel_bin);
-void relazione_equivalenza (rel_bin);
+int relazione_equivalenza (rel_bin);
 insieme_t acquisisci_insieme(void);
 rel_bin acquisisci_rel_bin(insieme_t);
 insieme_t crea_insieme_vuoto(void);
@@ -55,11 +55,8 @@ int acquisisci_elemento(insieme_t);
 void stampa(rel_bin);
 double* acquisisci_operazione(insieme_t);
 void controllo_chiusura(insieme_t,double *);
-//double somma(double,double);
-//divisione_t divisione(double,double);
-//double sottrazione(double,double);
-//double moltiplicazione(double,double);
 int controllo(insieme_t, double);
+void controllo_congruenza(rel_bin,insieme_t,double *);
 
 /*****************/
 /* funzione main */
@@ -108,7 +105,7 @@ int main()
             stampa(relazione);
 			risultati = acquisisci_operazione(insieme);
             controllo_chiusura(insieme, risultati);
-            relazione_equivalenza (relazione);
+            controllo_congruenza(relazione, insieme, risultati);
         }
         if(scelta==2)
         crea_insieme_vuoto();
@@ -403,7 +400,7 @@ j=0;
 chiusura=0;
 for(i=0;i<(insieme.numero_elementi*insieme.numero_elementi);i++){
     chiusura = 0;
- //   if(risultati != 1)
+ 	if(risultati[i] != 999)
 	for(j=0;j<insieme.numero_elementi;j++)
 		if(risultati[i] == insieme.elementi_insieme[j]){
 		chiusura = 1;
@@ -518,9 +515,9 @@ int controllo_riflessivita (rel_bin verifica)
                 }
             }
 
-
-
-    /********* Controllo se è riflessiva *******************/
+	}
+	
+	/********* Controllo se è riflessiva *******************/
 
     if (riflessivita == 1)
         printf ("   e'riflessiva\n");
@@ -528,9 +525,7 @@ int controllo_riflessivita (rel_bin verifica)
         printf ("   non e'riflessiva\n");
 
     /*********** Fine riflessivita ***********************/
-
-    return (riflessivita);
-}
+	return (riflessivita);
 }
 
 int controllo_transitivita (rel_bin verifica)
@@ -606,21 +601,24 @@ int controllo_transitivita (rel_bin verifica)
 }
 
 
-void relazione_equivalenza (rel_bin verifica)
+int relazione_equivalenza (rel_bin verifica)
 {
 
-    int riflessivita;
-    int simmetria;
-    int transitivita;
+    int riflessivita,
+    	simmetria,
+    	transitivita,
+    	equivalenza;
 
+	equivalenza=0;
     riflessivita = controllo_riflessivita(verifica);
     simmetria = controllo_simmetria(verifica);
-    /*controllo_antisimmetria (verifica);*/
     transitivita = controllo_transitivita(verifica);
 
-    if (riflessivita == 1 && simmetria == 1 && transitivita == 1)
+    if (riflessivita == 1 && simmetria == 1 && transitivita == 1){
         printf ("\n Quindi e'una relazione di equivalenza\n");
-
+		equivalenza=1;
+	}
+	
     if (riflessivita == 0)
         printf ("\n Quindi non e'una relazione di equivalenza perche'non riflessiva\n");
 
@@ -629,7 +627,7 @@ void relazione_equivalenza (rel_bin verifica)
 
     if (transitivita == 0)
         printf ("\n Quindi non e'una relazione di equivalenza perche'non transitiva\n");
-    return;
+    return equivalenza;
 }
 
 int controllo_simmetria (rel_bin verifica)
@@ -671,8 +669,42 @@ int controllo_simmetria (rel_bin verifica)
             riscontro = 0;
             i++;
         }
-    printf("e' simmetrica");
+    /**** Controllo se la simmetria è stata verificata ****/
+        if (simmetria == 1)
+            printf ("   e'simmetrica\n");
+        else
+            printf ("   e'asimmetrica\n");
 
 
     return (simmetria);
+}
+
+
+void controllo_congruenza(rel_bin relazione, insieme_t insieme, double * risultati)
+{
+int equivalenza,
+	i,
+	j,
+	continua;
+
+equivalenza = relazione_equivalenza(relazione);
+i = 0;
+j = 0;
+continua=0;
+for(i=0;i<insieme.numero_elementi;i++){
+    for(j=0; j<(insieme.numero_elementi*insieme.numero_elementi); j++)
+    	if(insieme.elementi_insieme[j] == risultati[i])
+		continua = 1;
+		j = (insieme.numero_elementi*insieme.numero_elementi)+1;
+	if(continua == 0)
+	i=insieme.numero_elementi +1;
+	}
+
+	if(continua == 0 || equivalenza == 0)
+	printf("\n La cogruenza non e' verificata\n");
+	else
+	printf("\n La congruenza e' verificata\n");
+
+	return;
+
 }
