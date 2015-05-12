@@ -456,7 +456,7 @@ void controllo_chiusura (insieme_t insieme, insieme_t risultati)
 
     for( j = 0; j < risultati.numero_elementi; j++)
     {
-        chiusura=0;
+        chiusura = 0;
         for( i = 0; i < insieme.numero_elementi; i++)
         {
             if(risultati.elementi_insieme[j] == insieme.elementi_insieme[i])

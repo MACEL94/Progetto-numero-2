@@ -66,7 +66,8 @@ int main()
     char carattere_non_letto;
     double *risultati;
 	int scelta,
-        lettura_effettuata;
+        lettura_effettuata,
+        ripeti;
 
     /* variabili per insieme e relazione */
 
@@ -74,6 +75,7 @@ int main()
     rel_bin relazione;
 
     /*inizializzo le variabili*/
+    ripeti = 0;
     scelta=0;
     lettura_effettuata=0;
 
@@ -94,6 +96,7 @@ int main()
             while (carattere_non_letto != '\n');
             scelta=4;
         }
+        while(ripeti == 0){
         if(scelta==1)
         {
             insieme = acquisisci_insieme();
@@ -103,7 +106,19 @@ int main()
             controllo_chiusura(insieme, risultati);
         }
         if(scelta==2)
-            crea_insieme_vuoto();
+        crea_insieme_vuoto();
+        printf(" Si vuole acquisire un altro insieme\n ");
+        lettura_effettuata = scanf("%d",&ripeti);
+        if(lettura_effettuata != 1)
+        {
+            do
+                carattere_non_letto = getchar();
+            while (carattere_non_letto != '\n');
+            ripeti = 1;
+        }
+        }
+
+
     }
     return 0;
 }
@@ -361,7 +376,8 @@ double* acquisisci_operazione(insieme_t insieme){
 	j=0;
 	dimensione=0;
 	risultati = (double *) malloc (2);
- 	printf(" Inserire ora l'operazione: \n");
+ 	printf(" \n\n Inserire ora i risultati dell'operazioni: \n");
+ 	printf(" \n Digitare 999 per risultati impossibili o indeterminati. \n");
 	for(i = 0; i < insieme.numero_elementi; i++){
         for(j = 0; j < insieme.numero_elementi; j++){
         	risultati = (double *) realloc (risultati, (dimensione+1) * sizeof (double));
@@ -380,206 +396,26 @@ int i,
 i=0;
 j=0;
 chiusura=0;
-for(i=0;i<(insieme.numero_elementi*insieme.numero_elementi);i++)
-	for(j=0;j<insieme.numero_elementi;j++){
+for(i=0;i<(insieme.numero_elementi*insieme.numero_elementi);i++){
+    chiusura = 0;
+    if(risultati != 1)
+	for(j=0;j<insieme.numero_elementi;j++)
 		if(risultati[i] == insieme.elementi_insieme[j]){
-			j=insieme.numero_elementi;
-			chiusura = 1;
+		chiusura = 1;
+		j = insieme.numero_elementi+1;
 		}
 	if(chiusura == 0)
 	i=(insieme.numero_elementi*insieme.numero_elementi);
 	}
+
 	if(chiusura == 0)
-	printf("\n La chiusura non e' verificata");
-	if(chiusura ==1)
-	printf("\n La chiusura e' verificata");
+	printf("\n La chiusura non e' verificata\n");
+	if(chiusura == 1)
+	printf("\n La chiusura e' verificata\n");
 
 	return;
 }
 
 
-
-/*
-int acquisisci_operazione()
-{
-    char carattere_non_letto;
-    int scelta,
-        lettura_corretta;
-    printf("\n Inserire ora il numero corrispondente all' operazione desiderata:\n");
-    printf("\n 1 - Somma\n 2 - Differenza\n 3 - Moltiplicazione\n 4 - Divisione\n\n");
-    scelta = 0;
-    do
-    {
-        printf(" Scelta: ");
-        lettura_corretta = scanf("%d",&scelta);
-        if(lettura_corretta == 0)
-        {
-            do
-                carattere_non_letto = getchar();
-            while (carattere_non_letto != '\n');
-        }
-    }
-    while(lettura_corretta == 0 || (scelta != 1 && scelta != 2 && scelta != 3 && scelta != 4));
-    switch(scelta)
-    {
-    case 1:
-        printf("\n E' stata scelta la Somma\n");
-        break;
-    case 2:
-        printf("\n E' stata scelta la Differenza\n");
-        break;
-    case 3:
-        printf("\n E' stata scelta la Moltiplicazione\n");
-        break;
-    case 4:
-        printf("\n E' stata scelta la Divisione\n");
-        break;
-    }
-    return(scelta);
-}
-*/
-/*inizio il controllo della chiusura*/
-/*
-void controllo_chiusura(int operazione, insieme_t insieme)
-{
-    int i,j,chiusura;
-    double risultato;
-    divisione_t div;
-
-    chiusura = 0;
-
-    switch(operazione)
-    {
-
-    case 1:
-        for( i = 0; i < insieme.numero_elementi; i++)
-            for( j = 0; j < insieme.numero_elementi; j++)
-            {
-                risultato = somma(insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
-                chiusura = controllo(insieme,risultato);
-                if(chiusura == 0)
-                {
-                    j = insieme.numero_elementi;
-                    i = insieme.numero_elementi;
-                }
-            }
-        break;
-
-    case 2:
-        for( i = 0; i < insieme.numero_elementi; i++)
-            for( j = 0; j < insieme.numero_elementi; j++)
-            {
-                risultato = sottrazione(insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
-                chiusura = controllo(insieme,risultato);
-                if(chiusura == 0)
-                {
-                    j = insieme.numero_elementi;
-                    i = insieme.numero_elementi;
-                }
-            }
-        break;
-
-    case 3:
-        for( i = 0; i < insieme.numero_elementi; i++)
-            for( j = 0; j < insieme.numero_elementi; j++)
-            {
-                risultato = moltiplicazione(insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
-                chiusura = controllo(insieme,risultato);
-                if(chiusura == 0)
-                {
-                    j = insieme.numero_elementi;
-                    i = insieme.numero_elementi;
-                }
-            }
-
-        break;
-
-    case 4:
-        for( i = 0; i < insieme.numero_elementi; i++)
-            for( j = 0; j < insieme.numero_elementi; j++)
-            {
-                div.risultato = divisione(insieme.elementi_insieme[i],insieme.elementi_insieme[j]).risultato;
-                chiusura = controllo(insieme,div.risultato);
-                if(chiusura == 0 || div.buon_fine == 0)
-                {
-                    j = insieme.numero_elementi;
-                    i = insieme.numero_elementi;
-                }
-            }
-
-        break;
-    }
-
-
-    if(chiusura == 0)
-        printf("\n L'insieme non e' chiuso rispetto all'operazione");
-    else
-        printf("\n L'insieme e' chiuso rispetto all'operazione");
-
-    return;
-}
-
-
-double somma (double primo_termine, double secondo_termine)
-{
-    int somma;
-
-    somma = primo_termine + secondo_termine;
-
-	return somma;
-}
-
-double sottrazione (double primo_termine, double secondo_termine)
-{
-    int sottrazione;
-
-    sottrazione = primo_termine - secondo_termine;
-
-    return(sottrazione);
-}
-
-
-double moltiplicazione (double primo_termine, double secondo_termine)
-{
-    int moltiplicazione;
-
-    moltiplicazione = primo_termine * secondo_termine;
-
-    return(moltiplicazione);
-}
-
-divisione_t divisione (double primo_termine, double secondo_termine)
-{
-    divisione_t div;
-
-    if(secondo_termine != 0)
-    {
-        div.buon_fine = 1;
-        div.risultato = primo_termine / secondo_termine;
-    }
-    else
-    {
-        div.buon_fine = 0;
-        printf( "\n errore, un denominatore risulta essere uguale a 0\n");
-    }
-    return(div);
-}
-*/
-/*controllo che l'elemento appartenga all'insieme*/
-
-int controllo (insieme_t insieme, double risultato)
-{
-    int i,chiusura;
-    chiusura = 0;
-
-    for( i = 0; i < insieme.numero_elementi; i++)
-        if(risultato == insieme.elementi_insieme[i])
-        {
-            chiusura = 1;
-            i = insieme.numero_elementi;
-        }
-
-    return(chiusura);
-}
 
 
