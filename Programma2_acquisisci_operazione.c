@@ -44,6 +44,10 @@ typedef struct Insieme
 /* dichiarazione delle funzioni */
 /********************************/
 
+int controllo_simmetria (rel_bin);
+int controllo_riflessivita (rel_bin);
+int controllo_transitivita (rel_bin);
+void relazione_equivalenza (rel_bin);
 insieme_t acquisisci_insieme(void);
 rel_bin acquisisci_rel_bin(insieme_t);
 insieme_t crea_insieme_vuoto(void);
@@ -104,10 +108,11 @@ int main()
             stampa(relazione);
 			risultati = acquisisci_operazione(insieme);
             controllo_chiusura(insieme, risultati);
+            relazione_equivalenza (relazione);
         }
         if(scelta==2)
         crea_insieme_vuoto();
-        printf(" Si vuole acquisire un altro insieme\n ");
+        printf("\n Premere 0 per acquisire un altro insieme.\n ");
         lettura_effettuata = scanf("%d",&ripeti);
         if(lettura_effettuata != 1)
         {
@@ -215,7 +220,7 @@ insieme_t acquisisci_insieme()
     i=0;
     while(i < insieme.numero_elementi)
     {
-        printf("%lf",insieme.elementi_insieme[i]);
+        printf("%.2lf",insieme.elementi_insieme[i]);
         if(i+1 < insieme.numero_elementi)
             printf(" ; ");
         i++;
@@ -314,7 +319,7 @@ void stampa (rel_bin stampa)
 
     while (i < stampa.dimensione)
     {
-        printf ("(%lf,%lf)",stampa.primo_termine[i],stampa.secondo_termine[i]);
+        printf ("(%.2lf,%.2lf)",stampa.primo_termine[i],stampa.secondo_termine[i]);
         if (i+1 != stampa.dimensione)
             printf (" ; ");
         i++;
@@ -398,7 +403,7 @@ j=0;
 chiusura=0;
 for(i=0;i<(insieme.numero_elementi*insieme.numero_elementi);i++){
     chiusura = 0;
-    if(risultati != 1)
+ //   if(risultati != 1)
 	for(j=0;j<insieme.numero_elementi;j++)
 		if(risultati[i] == insieme.elementi_insieme[j]){
 		chiusura = 1;
@@ -416,6 +421,258 @@ for(i=0;i<(insieme.numero_elementi*insieme.numero_elementi);i++){
 	return;
 }
 
+int controllo_riflessivita (rel_bin verifica)
+{
+
+    int i,
+        j,
+        k,
+        riscontro,
+        secondo_riscontro,
+        riflessivita;
+
+    riflessivita = 1;
+    i = 0;
+    j = 0;
+    k = 0;
+    riscontro = 0;
+    secondo_riscontro = 0;
+
+    /*Verifica riflessività*/
+
+    /*Definizione: una relazione per la quale esiste almeno un elemento che non e'in relazione con sé stesso non soddisfa la definizione di riflessività*/
+
+    while ( (i < verifica.dimensione) && (k < verifica.dimensione))
+    {
+
+        /*Verifica riflessività per numeri*/
+
+            riscontro = 0;
+            secondo_riscontro = 0;
+            if (verifica.primo_termine[i] == verifica.secondo_termine[i])
+                riscontro++; /****Controllo se c'è stato un riscontro a,a****/
+            secondo_riscontro++;
+            if (riscontro != 0)
+            {
+                i++;
+                k++;
+            }
+            /**/
+            else
+            {
+                j=0;
+                riscontro = 0;
+                secondo_riscontro = 0;
+
+                /***************** Controllo la riflessività per gli elementi del primo insieme ******************************/
+
+                while (j < verifica.dimensione)
+                {
+                    if (j == i)
+                        j++;
+                    else
+                    {
+                        if (verifica.primo_termine[i] == verifica.primo_termine[j])
+                            if (verifica.primo_termine[j] == verifica.secondo_termine[j])
+                                riscontro++;
+
+                        j++;
+                    }
+                }
+
+                j = 0;
+
+                /***************** Controllo la riflessività per gli elementi del secondo insieme ******************************/
+
+                while (j < verifica.dimensione)
+                {
+                    if (j == k)
+                        j++;
+                    else
+                    {
+                        if (verifica.secondo_termine[k] == verifica.secondo_termine[j])
+                            if (verifica.primo_termine[j] == verifica.secondo_termine[j])
+                                secondo_riscontro++;
+
+                        j++;
+                    }
+                }
+                if (riscontro != 0)
+                    i++;
+
+                /**** Se non c'è stato un riscontro di riflessività esco e imposto la riflessività a 0 *****/
+
+                else
+                {
+                    i=verifica.dimensione;
+                    riflessivita = 0;
+                }
+
+                if (secondo_riscontro != 0)
+                    k++;
+
+                else
+                {
+                    k=verifica.dimensione;
+                    riflessivita = 0;
+                }
+            }
 
 
 
+    /********* Controllo se è riflessiva *******************/
+
+    if (riflessivita == 1)
+        printf ("   e'riflessiva\n");
+    else
+        printf ("   non e'riflessiva\n");
+
+    /*********** Fine riflessivita ***********************/
+
+    return (riflessivita);
+}
+}
+
+int controllo_transitivita (rel_bin verifica)
+{
+
+    int i,
+        j,
+        k,
+        transitivita;
+
+    /*IMPOSTO LA TRANSITIVITA INIZIALMENTE COME VERA E AZZERO I CONTATORI*/
+    transitivita = 1;
+    i = 0;
+    j = 0;
+    k = 0;
+
+    /*VERIFICA TRANSITIVITà PER NUMERI*/
+
+
+        while (i < verifica.dimensione)
+        {
+            j = 0;
+
+            while (j < verifica.dimensione)
+            {
+                k=0;
+
+                if (verifica.secondo_termine[i] == verifica.primo_termine[j])
+                {
+                    transitivita = 0;
+
+                    while (k < verifica.dimensione)
+                    {
+                        if (verifica.primo_termine[i] == verifica.primo_termine[k])
+                        {
+                            if (verifica.secondo_termine[k]==verifica.secondo_termine[j])
+                            {
+                                transitivita = 1;
+                                k = verifica.dimensione;
+                            }
+                        }
+
+                        k++;
+                    }
+
+                    if (transitivita==0)
+                    {
+                        j=verifica.dimensione;
+                        i=verifica.dimensione;
+                    }
+                }
+
+                j++;
+            }
+
+            i++;
+        }
+
+
+
+    /********** Controllo se la relazione è Transitiva *********/
+
+    if (transitivita == 1)
+        printf ("   e'transitiva\n");
+
+    else
+        printf ("   non e'transitiva\n");
+
+    /************ Fine controllo Transitività ************/
+
+    return (transitivita);
+
+}
+
+
+void relazione_equivalenza (rel_bin verifica)
+{
+
+    int riflessivita;
+    int simmetria;
+    int transitivita;
+
+    riflessivita = controllo_riflessivita(verifica);
+    simmetria = controllo_simmetria(verifica);
+    /*controllo_antisimmetria (verifica);*/
+    transitivita = controllo_transitivita(verifica);
+
+    if (riflessivita == 1 && simmetria == 1 && transitivita == 1)
+        printf ("\n Quindi e'una relazione di equivalenza\n");
+
+    if (riflessivita == 0)
+        printf ("\n Quindi non e'una relazione di equivalenza perche'non riflessiva\n");
+
+    if (simmetria == 0)
+        printf ("\n Quindi non e'una relazione di equivalenza perche'non simmetrica\n");
+
+    if (transitivita == 0)
+        printf ("\n Quindi non e'una relazione di equivalenza perche'non transitiva\n");
+    return;
+}
+
+int controllo_simmetria (rel_bin verifica)
+{
+
+    int i,
+        j,
+        riscontro,
+        simmetria;
+
+    simmetria = 1;
+
+
+    i = 0;
+    j = 0;
+    riscontro = 0;
+
+    /*controllo della simmetria per numeri*/
+
+        while ( i < verifica.dimensione)
+        {
+
+            j = 0;
+            while ( j < verifica.dimensione)
+            {
+
+                if (verifica.primo_termine[i] == verifica.secondo_termine[j])
+                    if (verifica.primo_termine[j] == verifica.secondo_termine[i])
+                        riscontro++;
+                j++;
+            }
+
+            if (riscontro == 0)
+            {
+                j = verifica.dimensione;
+                i = verifica.dimensione;
+                simmetria = 0;
+            }
+            riscontro = 0;
+            i++;
+        }
+    printf("e' simmetrica");
+
+
+    return (simmetria);
+}
