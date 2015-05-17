@@ -16,7 +16,6 @@
 
 typedef struct relBin
 {
-
     /* coppia numerica */
 
     double 	*primo_termine,
@@ -25,7 +24,6 @@ typedef struct relBin
     /* variabile per sapere il numero delle coppie */
 
     int dimensione;
-
 } rel_bin;
 
 typedef struct Insieme
