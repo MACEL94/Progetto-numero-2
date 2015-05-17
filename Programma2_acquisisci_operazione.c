@@ -27,13 +27,7 @@ typedef struct relBin
     int dimensione;
 
 } rel_bin;
-/*
-typedef struct divisione
-{
-    double risultato;
-    int buon_fine;
-} divisione_t;
-*/
+
 typedef struct Insieme
 {
     double* elementi_insieme;
@@ -98,26 +92,32 @@ int main()
             scelta=4;
         }
         while(ripeti == 0){
-        if(scelta==1)
-        {
-            insieme = acquisisci_insieme();
-            relazione = acquisisci_rel_bin(insieme);
-            stampa(relazione);
-			risultati = acquisisci_operazione(insieme);
-            controllo_chiusura(insieme, risultati);
-            controllo_congruenza(relazione, insieme, risultati);
-        }
-        if(scelta==2)
-        crea_insieme_vuoto();
-        printf("\n Premere 0 per acquisire un altro insieme.\n ");
-        lettura_effettuata = scanf("%d",&ripeti);
-        if(lettura_effettuata != 1)
-        {
-            do
-                carattere_non_letto = getchar();
-            while (carattere_non_letto != '\n');
-            ripeti = 1;
-        }
+        	if(scelta==1)
+        	{
+        	    insieme = acquisisci_insieme();
+        	    relazione = acquisisci_rel_bin(insieme);
+        	    stampa(relazione);
+				risultati = acquisisci_operazione(insieme);
+        	    controllo_chiusura(insieme, risultati);
+        	    controllo_congruenza(relazione, insieme, risultati);
+        	}
+        	if(scelta==2){
+        		insieme = crea_insieme_vuoto();
+				printf("\n L'insieme che si e' scelto e' vuoto, quindi non ci possono essere");
+				printf("\n relazioni.\n");
+				risultati = acquisisci_operazione(insieme);
+        	    controllo_chiusura(insieme, risultati);
+        	    controllo_congruenza(relazione, insieme, risultati);
+			}
+        	printf("\n Premere 0 per acquisire un altro insieme.\n ");
+        	lettura_effettuata = scanf("%d",&ripeti);
+        	if(lettura_effettuata != 1)
+        	{
+        	    do
+        	        carattere_non_letto = getchar();
+           		while (carattere_non_letto != '\n');
+        	    ripeti = 1;
+        	}
         }
 
 
