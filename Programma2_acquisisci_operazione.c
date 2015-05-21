@@ -514,7 +514,7 @@ int controllo_riflessivita (rel_bin verifica)
             }
 
 	}
-	
+
 	/********* Controllo se è riflessiva *******************/
 
     if (riflessivita == 1)
@@ -616,7 +616,7 @@ int relazione_equivalenza (rel_bin verifica)
         printf ("\n Quindi e'una relazione di equivalenza\n");
 		equivalenza=1;
 	}
-	
+
     if (riflessivita == 0)
         printf ("\n Quindi non e'una relazione di equivalenza perche'non riflessiva\n");
 
@@ -681,14 +681,18 @@ int controllo_simmetria (rel_bin verifica)
 void controllo_congruenza(rel_bin relazione, insieme_t insieme, double * risultati)
 {
 int equivalenza,
+    dicotomia,
 	i,
 	j,
 	continua;
 
+dicotomia = controllo_dicotomia(relazione);
 equivalenza = relazione_equivalenza(relazione);
+
 i = 0;
 j = 0;
 continua=0;
+
 for(i=0;i<insieme.numero_elementi;i++){
     for(j=0; j<(insieme.numero_elementi*insieme.numero_elementi); j++)
     	if(insieme.elementi_insieme[j] == risultati[i])
@@ -698,11 +702,122 @@ for(i=0;i<insieme.numero_elementi;i++){
 	i=insieme.numero_elementi +1;
 	}
 
-	if(continua == 0 || equivalenza == 0)
+	if(continua == 0 || equivalenza == 0 || dicotomia == 0)
 	printf("\n La cogruenza non e' verificata\n");
 	else
 	printf("\n La congruenza e' verificata\n");
 
 	return;
 
+}
+
+
+int controllo_dicotomia (rel_bin verifica)
+{
+
+    int i,j,k;
+    int numero_elementi;
+    int dicotomia = 0;
+    int dimensione;
+    int riscontro;
+    int secondo_riscontro;
+    i=0;
+    j=0;
+    k=i-1;
+    riscontro = 0;
+    dimensione = verifica.dimensione;
+
+    /********* Dicotomia per numeri *********/
+
+        /********** Conto il numero delle coppie esistenti (scarto le coppie uguali) *********/
+
+        while ( i < verifica.dimensione)
+        {
+            k = i-1;
+            j = i+1;
+            secondo_riscontro = 0;
+
+            if (i>0)
+            {
+                while ( k >= 0 )
+                {
+                    if (verifica.primo_termine[i] == verifica.primo_termine[k])
+                    {
+                        if (verifica.secondo_termine[i] == verifica.secondo_termine[k])
+                            secondo_riscontro = 1;
+                    }
+                    k--;
+                }
+            }
+
+            if (secondo_riscontro != 1)
+            {
+                while ( j < verifica.dimensione)
+                {
+                    if (verifica.primo_termine[i] == verifica.primo_termine[j])
+                        if (verifica.secondo_termine[i] == verifica.secondo_termine[j])
+                        {
+                            dimensione--;
+                        }
+                    j++;
+                }
+            }
+            i++;
+        }
+
+
+        i=0;
+        j=0;
+        k=0;
+        numero_elementi=0;
+        riscontro = 0;
+        /*************** Conto il numero degli elementi distinti esistenti ***************/
+
+        while (i<verifica.dimensione)
+        {
+            k=i-1;
+            secondo_riscontro = 0;
+
+            while (k >= 0)
+            {
+                if (verifica.primo_termine[i] == verifica.primo_termine[k])
+                    secondo_riscontro = 1;
+                k--;
+            }
+            if (secondo_riscontro != 1)
+            {
+                if (verifica.primo_termine[i] == verifica.secondo_termine[i])
+                    riscontro++;
+
+            }
+            i++;
+        }
+
+        numero_elementi = riscontro;
+
+        /************ Conto quanti dovrebbero essere gli elementi per avere la dicotomia ***********/
+
+        while (numero_elementi > 0)
+        {
+            numero_elementi--;
+            riscontro = riscontro + numero_elementi;
+        }
+
+
+
+
+    /************* Verifico se la dicotomia è verificata ****************/
+
+    if (dimensione == riscontro)
+        dicotomia = 1;
+
+    if (dicotomia == 1 )
+        printf ("   e'dicotomica\n\n");
+
+    else
+        printf ("   non e'dicotomica\n\n");
+
+    /***************** Fine verifica dicotomia ******************/
+
+    return (dicotomia);
 }
