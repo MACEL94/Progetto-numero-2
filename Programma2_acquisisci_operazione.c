@@ -49,6 +49,7 @@ double* acquisisci_operazione(insieme_t);
 void controllo_chiusura(insieme_t,double *);
 int controllo(insieme_t, double);
 void controllo_congruenza(rel_bin,insieme_t,double *);
+int controllo_dicotomia(insieme_t,rel_bin);
 
 /*****************/
 /* funzione main */
@@ -241,6 +242,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
 
     int acquisizione_finita,
         risultato_lettura,
+        i,
         primo_termine_acquisito;
 
     char carattere_non_letto;
@@ -280,7 +282,13 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
         {
             printf ("   Secondo Termine: ");
             relazione.secondo_termine[relazione.dimensione - 1] = acquisisci_elemento(insieme);
-        }
+        	for(i=relazione.dimensione-2;i>=0;i--)
+				if(relazione.primo_termine[relazione.dimensione - 1] == relazione.primo_termine[i])
+					if(relazione.secondo_termine[relazione.dimensione -1] == relazione.secondo_termine[i]){
+						relazione.dimensione--;
+						i=0;
+					}
+		}
 
         /*Chiedo all'utente se ci sono altre coppie*/
 
@@ -686,7 +694,7 @@ int equivalenza,
 	j,
 	continua;
 
-dicotomia = controllo_dicotomia(relazione);
+dicotomia = controllo_dicotomia(insieme,relazione);
 equivalenza = relazione_equivalenza(relazione);
 
 i = 0;
@@ -712,112 +720,32 @@ for(i=0;i<insieme.numero_elementi;i++){
 }
 
 
-int controllo_dicotomia (rel_bin verifica)
+int controllo_dicotomia (insieme_t insieme,rel_bin verifica)
 {
+	int i,
+		j,
+		riscontro;
 
-    int i,j,k;
-    int numero_elementi;
-    int dicotomia = 0;
-    int dimensione;
-    int riscontro;
-    int secondo_riscontro;
-    i=0;
-    j=0;
-    k=i-1;
-    riscontro = 0;
-    dimensione = verifica.dimensione;
-
-    /********* Dicotomia per numeri *********/
-
-        /********** Conto il numero delle coppie esistenti (scarto le coppie uguali) *********/
-
-        while ( i < verifica.dimensione)
-        {
-            k = i-1;
-            j = i+1;
-            secondo_riscontro = 0;
-
-            if (i>0)
-            {
-                while ( k >= 0 )
-                {
-                    if (verifica.primo_termine[i] == verifica.primo_termine[k])
-                    {
-                        if (verifica.secondo_termine[i] == verifica.secondo_termine[k])
-                            secondo_riscontro = 1;
-                    }
-                    k--;
-                }
-            }
-
-            if (secondo_riscontro != 1)
-            {
-                while ( j < verifica.dimensione)
-                {
-                    if (verifica.primo_termine[i] == verifica.primo_termine[j])
-                        if (verifica.secondo_termine[i] == verifica.secondo_termine[j])
-                        {
-                            dimensione--;
-                        }
-                    j++;
-                }
-            }
-            i++;
-        }
-
-
-        i=0;
-        j=0;
-        k=0;
-        numero_elementi=0;
-        riscontro = 0;
-        /*************** Conto il numero degli elementi distinti esistenti ***************/
-
-        while (i<verifica.dimensione)
-        {
-            k=i-1;
-            secondo_riscontro = 0;
-
-            while (k >= 0)
-            {
-                if (verifica.primo_termine[i] == verifica.primo_termine[k])
-                    secondo_riscontro = 1;
-                k--;
-            }
-            if (secondo_riscontro != 1)
-            {
-                if (verifica.primo_termine[i] == verifica.secondo_termine[i])
-                    riscontro++;
-
-            }
-            i++;
-        }
-
-        numero_elementi = riscontro;
-
-        /************ Conto quanti dovrebbero essere gli elementi per avere la dicotomia ***********/
-
-        while (numero_elementi > 0)
-        {
-            numero_elementi--;
-            riscontro = riscontro + numero_elementi;
-        }
-
-
-
-
-    /************* Verifico se la dicotomia è verificata ****************/
-
-    if (dimensione == riscontro)
-        dicotomia = 1;
-
-    if (dicotomia == 1 )
-        printf ("   e'dicotomica\n\n");
-
-    else
-        printf ("   non e'dicotomica\n\n");
-
-    /***************** Fine verifica dicotomia ******************/
-
-    return (dicotomia);
+	i=0;
+	j=0;
+	riscontro=0;
+	for(i = 0; i < insieme.numero_elementi; i++)
+	{
+		if(insieme.elementi_insieme[i] == verifica.primo_termine[i])
+		{
+			for(j = 0; j < insieme.numero_elementi; j++)
+			{
+				if(insieme.elementi_insieme[j] == verifica.secondo_termine[i])
+				{
+					riscontro++;
+					j=insieme.numero_elementi;
+				}
+			}				
+		}
+	} 
+		if(riscontro == (insieme.numero_elementi*insieme.numero_elementi))
+			riscontro=1;
+		else
+			riscontro=0;
+	return riscontro;
 }
