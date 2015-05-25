@@ -13,6 +13,13 @@
 /*********************************/
 /* dichiarazione delle strutture */
 /*********************************/
+typedef struct operazione
+{
+    int *operando_a,
+        *operando_b,
+        risultati;
+
+} operazione;
 
 typedef struct relBin
 {
@@ -80,6 +87,7 @@ int main()
     printf(" e se la relazione\n e' una congruenza rispetto all'operazione.\n");
     printf("\n Digitare:\n 1 - se si vuole iniziare con l'acquisizione dell'insieme,\n 2 - se si vuole");
     printf(" inserire l'insieme vuoto,\n 3 - terminare il programma: ");
+
     while((scelta != 1 && scelta != 2 && scelta != 3) || lettura_effettuata != 1)
     {
         lettura_effettuata = scanf("%d",&scelta);
@@ -134,7 +142,8 @@ insieme_t acquisisci_insieme()
     /*dichiaro la struttura insieme*/
     insieme_t insieme;
 
-    int 	i,							/*variabile contatore*/
+    int 	i,
+            j,							/*variabile contatore*/
             finisci_di_acquisire,       /*variabile per terminare l'acquisizione*/
             zeri,
             elemento_acquisito;			/*variabile per verificare che la acquisizione vada a buon fine*/
@@ -145,6 +154,7 @@ insieme_t acquisisci_insieme()
     /*inizializzo le variabili*/
 
     elemento_acquisito = 0;
+    j = 0;
     i = 0;
     zeri = 0;
     temporaneo = 1;
@@ -160,7 +170,8 @@ insieme_t acquisisci_insieme()
 
     /*chiedo se l'utente vuole inserire lo 0*/
 
-    printf("\n Premere il numero di zeri presenti nell'insieme: ");
+    printf("\n E' presente lo zero nell'insieme che si vuole inserire?: ");
+	printf("\n1 si altro no\n");
 	do{
 		elemento_acquisito = scanf("%d",&zeri);
         if(elemento_acquisito != 1)
@@ -170,31 +181,40 @@ insieme_t acquisisci_insieme()
             while (carattere_non_letto != '\n');
         }
 	}while(elemento_acquisito != 1);
-    while (i < zeri && zeri > 0)
+    if (zeri == 1)
     {
         insieme.elementi_insieme = (double *) realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
         insieme.elementi_insieme[i]=0;
-        i++;
+        i=1;
     }
 
     /*faccio partire i da temporaneo*/
 
-    i=zeri;
+    if(zeri != 1)
+    i=0;
 
     printf("\n Per terminare l'acquisizione digitare 0\n");
+
     while(finisci_di_acquisire != 1)
     {
+
         insieme.elementi_insieme = (double *) realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
         printf("\n Digitare ora il %d elemento: ",i+1);
         elemento_acquisito = scanf("%lf",&temporaneo);
 
-        if(elemento_acquisito != 1)
+
+        for(j = insieme.numero_elementi - 1; j > 0; j--){
+        if(elemento_acquisito != 1 || temporaneo == insieme.elementi_insieme[j])
         {
             do
                 carattere_non_letto = getchar();
             while (carattere_non_letto != '\n');
 			i--;
+			j = 0;
         }
+        }
+
+
         if(temporaneo == 0)
         {
             finisci_di_acquisire = 1;
@@ -253,6 +273,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
     relazione.dimensione = 0;
     relazione.primo_termine = (double *) malloc (2);
     relazione.secondo_termine = (double *) malloc (2);
+
     while (acquisizione_finita == 0)
     {
         primo_termine_acquisito = 0;
@@ -740,9 +761,9 @@ int controllo_dicotomia (insieme_t insieme,rel_bin verifica)
 					riscontro++;
 					j=insieme.numero_elementi;
 				}
-			}				
+			}
 		}
-	} 
+	}
 		if(riscontro == (insieme.numero_elementi*insieme.numero_elementi))
 			riscontro=1;
 		else
