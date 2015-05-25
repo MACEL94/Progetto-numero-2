@@ -15,9 +15,9 @@
 /*********************************/
 typedef struct operazione
 {
-    int *operando_a,
-        *operando_b,
-        risultati;
+    double	*operando_a,
+        	*operando_b,
+        	*risultati;
 
 } operazione;
 
@@ -166,12 +166,12 @@ insieme_t acquisisci_insieme()
 
     /*inizio la vera e propria acquisizione*/
 
-    printf("\n\n Si e' scelto di acquisire un'insieme");
+    printf("\n\n Si e' scelto di acquisire un'insieme\n");
 
     /*chiedo se l'utente vuole inserire lo 0*/
 
-    printf("\n E' presente lo zero nell'insieme che si vuole inserire?: ");
-	printf("\n1 si altro no\n");
+    printf("\n E' presente lo zero nell'insieme che si vuole inserire?");
+	printf("\n Inserire 1 per si altro per no:\n ");
 	do{
 		elemento_acquisito = scanf("%d",&zeri);
         if(elemento_acquisito != 1)
@@ -202,27 +202,26 @@ insieme_t acquisisci_insieme()
         printf("\n Digitare ora il %d elemento: ",i+1);
         elemento_acquisito = scanf("%lf",&temporaneo);
 
-
-        for(j = insieme.numero_elementi - 1; j > 0; j--){
-        if(elemento_acquisito != 1 || temporaneo == insieme.elementi_insieme[j])
-        {
-            do
-                carattere_non_letto = getchar();
-            while (carattere_non_letto != '\n');
-			i--;
-			j = 0;
-        }
-        }
-
-
-        if(temporaneo == 0)
+		if(temporaneo == 0)
         {
             finisci_di_acquisire = 1;
             insieme.numero_elementi = i;
         }
-        else
+        
 		if(i >= 0)
             insieme.elementi_insieme[i] = temporaneo;
+        
+        for(j = i - 1; j >= 0; j--){
+        	if(elemento_acquisito != 1 || temporaneo == insieme.elementi_insieme[j])
+        	{
+           		do
+                	carattere_non_letto = getchar();
+            	while (carattere_non_letto != '\n');
+				i--;
+				j = 0;
+        	}
+        	
+        }
         i++;
     }
 
