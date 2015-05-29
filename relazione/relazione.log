@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  17 MAY 2015 18:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  29 MAY 2015 19:56
 entering extended mode
 **relazione.tex
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.tex
@@ -358,143 +358,345 @@ File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count99
 \AM@templatesizebox=\box29
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyvrb\fancyvrb.sty"
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count100
+\FV@InFile=\read1
+\FV@TabBox=\box30
+\c@FancyVerbLine=\count101
+\FV@StepNumber=\count102
+\FV@OutFile=\write3
+)
 
 LaTeX Warning: Unused global option(s):
     [block].
 
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-\c@lstlisting=\count100
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+\c@lstlisting=\count103
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
+\scratchcounter=\count104
 \scratchdimen=\dimen111
-\scratchbox=\box30
-\nofMPsegments=\count102
-\nofMParguments=\count103
+\scratchbox=\box31
+\nofMPsegments=\count105
+\nofMParguments=\count106
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count104
+\MPscratchCnt=\count107
 \MPscratchDim=\dimen112
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
 \everyMPtoPDFconversion=\toks20
 )
-\AtBeginShipoutBox=\box31
+\AtBeginShipoutBox=\box32
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 46.
+(Font)              <10.95> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 46.
+(Font)              <8> on input line 47.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 46.
+(Font)              <6> on input line 47.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.toc)
-\tf@toc=\write3
+\tf@toc=\write4
 [2] [1]
-Overfull \hbox (7.12962pt too wide) in paragraph at lines 84--85
+Overfull \hbox (7.12962pt too wide) in paragraph at lines 85--86
 \OT1/cmr/m/n/10.95 Il prob-lema ha come out-put il risul-tato della ver-i-fica 
 della chiusura dell'insieme
  []
 
 
-Overfull \hbox (25.92711pt too wide) in paragraph at lines 86--93
+Overfull \hbox (25.92711pt too wide) in paragraph at lines 87--94
 \OT1/cmr/m/n/10.95 ven-gono uti-liz-zati come operandi per l'operazione im-mess
 a, si dice che l'operazione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--93
+Underfull \hbox (badness 10000) in paragraph at lines 87--94
 
  []
 
 [2]
-Overfull \hbox (2.87001pt too wide) in paragraph at lines 98--106
+Overfull \hbox (2.87001pt too wide) in paragraph at lines 99--107
 \OT1/cmr/m/n/10.95 I sin-goli el-e-menti dell'insieme { ac-quis-i-bili solo in 
 modo se-quen-ziale { deb-bono
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--106
+Underfull \hbox (badness 10000) in paragraph at lines 99--107
 
  []
 
 
-Overfull \hbox (10.5058pt too wide) in paragraph at lines 107--112
+Overfull \hbox (10.5058pt too wide) in paragraph at lines 108--113
 \OT1/cmr/m/n/10.95 -Verificare e co-mu-ni-care se la con-gruenza della re-lazio
 ne rispetto all'operazione. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--112
+Underfull \hbox (badness 10000) in paragraph at lines 108--113
 
  []
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
-File: lstlang1.sty 2014/09/06 1.5e listings language file
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
-File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ansinew.def"
-File: ansinew.def 2008/03/30 v1.1d Input encoding file
-)
-(C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\Programma2_acquisisci_op
-erazione.c
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1.
 
 [3]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 9.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
-File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 9.
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
- [4] [5]
-[6] [7] [8] [9] [10]
-Overfull \hbox (41.06396pt too wide) in paragraph at lines 292--293
-[][] 
- []
+(C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\Programma2_acquisisci_op
+erazione.c [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
 
-[11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]) [22]
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.479     /*Verifica riflessività*
+                                  /
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:é\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.481 ...n elemento che non e'in relazione con sé 
+                                                  stesso non soddisfa la def...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.481 ... soddisfa la definizione di riflessività*
+                                                  /
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.486         /*Verifica riflessività 
+                                      per numeri*/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.491 ...      riscontro++; /****Controllo se c'è 
+                                                  stato un riscontro a,a****/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[14]
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.505 ...************** Controllo la riflessività 
+                                                  per gli elementi del primo...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.523 ...************** Controllo la riflessività 
+                                                  per gli elementi del secon...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[15]
+
+! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.541                 /**** Se non c'è 
+                                       stato un riscontro di riflessività es...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.541 ...n c'è stato un riscontro di riflessività 
+                                                  esco e imposto la riflessi...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.541 ...lessività esco e imposto la riflessività 
+                                                  a 0 *****/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.561 	/********* Controllo se è 
+                                 riflessiva *******************/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.586     /*VERIFICA TRANSITIVITà 
+                                  PER NUMERI*/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[16]
+
+! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.630     /********** Controllo se la relazione è 
+                                                  Transitiva *********/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[17]
+
+! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.638 ...************ Fine controllo Transitività 
+                                                  ************/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[18]
+
+! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
+ use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.713     /**** Controllo se la simmetria è 
+                                            stata verificata ****/
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[19] [20]) [21]
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.aux)
  ) 
 Here is how much of TeX's memory you used:
- 4274 strings out of 493921
- 59691 string characters out of 3144865
- 230837 words of memory out of 3000000
- 7527 multiletter control sequences out of 15000+200000
- 10053 words of font info for 35 fonts, out of 3000000 for 9000
+ 4577 strings out of 493921
+ 62387 string characters out of 3144865
+ 229859 words of memory out of 3000000
+ 7838 multiletter control sequences out of 15000+200000
+ 10826 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 37i,7n,49p,390b,1249s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,7n,40p,390b,1575s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on relazione.pdf (24 pages, 160921 bytes).
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on relazione.pdf (23 pages, 140951 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

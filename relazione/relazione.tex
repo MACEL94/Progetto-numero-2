@@ -4,6 +4,7 @@
 \hyphenpenalty=10000
 \usepackage[utf8]{inputenc}
 \usepackage{pdfpages}
+\usepackage{fancyvrb}
 \begin{document}
 	\begin{titlepage}
 		
@@ -109,11 +110,28 @@ all'operazione e se la relazione è una congruenza rispetto all'operazione.
 	-Acquisire e comunicare un operazione binaria su quell'insieme.\\
 	-Verificare e comunicare la chiusura dell'insieme rispetto all'operazione.\\
 	-Verificare e comunicare se la congruenza della relazione rispetto all'operazione.\\
+	\newpage
 	\section{Implementazione dell'algoritmo}
 	Questa è la traduzione dei passi in C:
-	\lstset{numbers=left, tabsize=2,breaklines=true, language=C}
-	\lstset{inputencoding=ansinew}	
-	\lstset{extendedchars=\true}
+	
+
+	\lstset{
+		aboveskip=1ex,
+		backgroundcolor=\color{gray!25},
+		basicstyle=\small\ttfamily,
+		belowskip=1ex,
+		breaklines=true,
+		columns=fullflexible,
+		framerule=0pt,
+		framexrightmargin=0em,
+		framexleftmargin=0em,
+		numbers=left,
+		numberstyle=\footnotesize\sffamily,
+		tabsize=2
+	}
 	\lstinputlisting{../Programma2_acquisisci_operazione.c}
+	
+
+	
 \end{document}
 

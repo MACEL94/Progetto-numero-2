@@ -1,6 +1,6 @@
-/***************************************************/
+/*************************************************/
 /* Progetto per la sessione estiva del 2014/2015 */
-/***************************************************/
+/*************************************************/
 
 /*****************************/
 /* inclusione delle librerie */
@@ -15,9 +15,9 @@
 /*********************************/
 typedef struct Operazione
 {
-    double	*operando_a,
-        	*operando_b,
-        	*risultati;
+  	double			*operando_a;
+	double			*operando_b;
+	double			*risultati;
 
 } operazione_t;
 
@@ -25,8 +25,8 @@ typedef struct RelBin
 {
     /* coppia numerica */
 
-    double 	*primo_termine,
-            *secondo_termine;
+    double 	*primo_termine;
+    double	*secondo_termine;
 
     /* variabile per sapere il numero delle coppie */
 
@@ -62,12 +62,12 @@ void controllo_congruenza(rel_bin,insieme_t,operazione_t,int);
 
 int main()
 {
-    operazione_t operazione;
+	operazione_t operazione;
 	char carattere_non_letto;
-	int scelta,
-        lettura_effettuata,
-        ripeti,
-        chiusura;
+	int scelta;
+	int lettura_effettuata;
+	int ripeti;
+	int chiusura;
 
     /* variabili per insieme e relazione */
 
@@ -76,16 +76,21 @@ int main()
 
     /*inizializzo le variabili*/
     ripeti = 0;
-    scelta=0;
-    lettura_effettuata=0;
+    scelta = 0;
+    lettura_effettuata = 0;
+    chiusura = 1;
 
 
-    printf(" Questo programma acquisisce nel seguente ordine: \n\n 1) Un insieme; ");
-    printf(" \n 2) Una relazione binaria su quell'insieme; \n 3) Un'operazione binaria");
-    printf(" su quell'insieme.\n\n Poi verifica se l'insieme e' chiuso rispetto all'operazione");
-    printf(" e se la relazione\n e' una congruenza rispetto all'operazione.\n");
-    printf("\n Digitare:\n 1 - se si vuole iniziare con l'acquisizione dell'insieme,\n 2 - se si vuole");
-    printf(" inserire l'insieme vuoto,\n 3 - terminare il programma: ");
+    printf(" Questo programma acquisisce nel seguente ordine:\n");
+	printf("\n 1) Un insieme;\n 2) Una relazione binaria su");
+    printf(" quell'insieme;\n 3) Un'operazione binaria su quell");
+    printf("'insieme.\n\n Poi verifica se l'insieme e' chiuso ");
+    printf("rispetto all'operazione e se la relazione\n e' una");
+    printf(" congruenza rispetto all'operazione.\n");
+    printf("\n Digitare:\n 1 - se si vuole iniziare con");
+    printf(" l'acquisizione dell'insieme,\n 2 - se si vuole ");
+    printf("inserire l'insieme vuoto,");
+    printf("\n 3 - terminare il programma:");
 
     while((scelta != 1 && scelta != 2 && scelta != 3) || lettura_effettuata != 1)
     {
@@ -97,22 +102,25 @@ int main()
             while (carattere_non_letto != '\n');
             scelta=4;
         }
-        while(ripeti == 0){
+        while(ripeti == 0 && lettura_effettuata == 1){
         	if(scelta==1)
         	{
         	    insieme = acquisisci_insieme();
         	    relazione = acquisisci_rel_bin(insieme);
         	    stampa(relazione);
 				operazione = acquisisci_operazione(insieme);
-        	    controllo_chiusura(insieme, operazione);
-        	    controllo_congruenza(relazione, insieme, operazione, chiusura);
+        	    chiusura = controllo_chiusura(insieme, operazione);
+        	    controllo_congruenza(relazione, insieme, operazione,
+															chiusura);
         	}
         	if(scelta==2){
         		insieme = crea_insieme_vuoto();
-				printf("\n L'insieme che si e' scelto e' vuoto, quindi non ci possono essere");
-				printf("\n relazioni.\n");
-        	    chiusura = controllo_chiusura(insieme, operazione);
-        	    controllo_congruenza(relazione, insieme, operazione, chiusura);
+				printf("\n L'insieme che si e' scelto e' vuoto, quindi ");
+				printf("qualsiasi \n sia la relazione, simmetria,");
+				printf(" riflessivita' e transitivita'");
+				printf("\n sono sempre verificate.");
+        	    printf("\n Per convenzione diciamo anche che qualsiasi");
+        	    printf(" sia l'operazione e' chiusa rispetto all'insieme");
 			}
         	printf("\n Premere 0 per acquisire un altro insieme.\n ");
         	lettura_effettuata = scanf("%d",&ripeti);
@@ -138,17 +146,19 @@ int main()
 insieme_t acquisisci_insieme()
 {
     /*dichiaro la struttura insieme*/
+    
     insieme_t insieme;
 
-    int 	i,
-            j,							/*variabile contatore*/
-            finisci_di_acquisire,       /*variabile per terminare l'acquisizione*/
-            zeri,
-            elemento_acquisito;			/*variabile per verificare che la acquisizione vada a buon fine*/
+    int 	i;					 /*variabile contatore */
+    int 	j;				 	 /*variabile contatore*/
+    int 	finisci_di_acquisire;/*variabile per terminare l'acquisizione*/
+    int 	zeri;
+    int 	elemento_acquisito;	 /*variabile per verificare che la acquisizione vada a buon fine*/
 
-    char	carattere_non_letto;		/*variabile necessaria allo svuotamento del buffer*/
+    char	carattere_non_letto; /*variabile necessaria allo svuotamento del buffer*/
 
-    double temporaneo;					/*variabile per acquisire ogni elemento temporaneamente*/
+    double temporaneo;			 /*variabile per acquisire ogni elemento temporaneamente*/
+    
     /*inizializzo le variabili*/
 
     elemento_acquisito = 0;
