@@ -75,12 +75,12 @@ int main()
     rel_bin relazione;
 
     /*inizializzo le variabili*/
-    ripeti = 0;
+    ripeti = 1;
     scelta = 0;
     lettura_effettuata = 0;
     chiusura = 1;
 
-    while(ripeti == 0)
+    while(ripeti == 1)
     {
         printf("\n ***************************************************************\n");
         printf("\n  Questo programma acquisisce nel seguente ordine:\n");
@@ -128,7 +128,7 @@ int main()
             printf(" riflessivita' e transitivita'");
             printf("\n  sono sempre verificate.");
             printf("\n  Per convenzione diciamo anche che qualsiasi");
-            printf(" sia l'operazione e' chiusa rispetto all'insieme");
+            printf(" sia\n l'operazione e' chiusa rispetto all'insieme");
         }
 
         printf("\n\n  Digitare:\n   1 - se si vuole acquisire");
@@ -145,7 +145,7 @@ int main()
                 ripeti = 1;
             }
         }
-        while(lettura_effettuata != 1 || ripeti != 0 && ripeti != 1);
+        while(lettura_effettuata != 1 || ripeti != 1 && ripeti != 2);
     }
 
     return 0;
@@ -193,7 +193,7 @@ insieme_t acquisisci_insieme()
 
     printf("\n\n ************** ACQUISIZIONE DELL' INSIEME **********************\n");
     printf("\n\n  Digitare:\n   1 - se l'elemento 0 appartiene all insieme");
-    printf("\n   2 - altro nel caso non gli appartiene: ");
+    printf("\n   2 - nel caso non gli appartiene: ");
     do
     {
         elemento_acquisito = scanf("%d",&zeri);
@@ -204,7 +204,7 @@ insieme_t acquisisci_insieme()
             while (carattere_non_letto != '\n');
         }
     }
-    while(elemento_acquisito != 1);
+    while(elemento_acquisito != 1 || zeri != 1 && zeri != 2);
     if (zeri == 1)
     {
         insieme.elementi_insieme = (double *) realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
@@ -212,9 +212,9 @@ insieme_t acquisisci_insieme()
         i = 1;
     }
 
-    /*faccio partire i da temporaneo*/
+    /*faccio partire i i+1 se c'e' lo zero*/
 
-    if(zeri != 1)
+    if(zeri == 2)
         i = 0;
 
     printf("\n\n  Per terminare l'acquisizione digitare 0\n\n");
@@ -341,7 +341,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
 
         do
         {
-            printf("\n\n  Digitare:\n   0 - per terminare l acquisizione,");
+            printf("\n\n  Digitare:\n   0 - per terminare l'acquisizione,");
             printf("\n   1 - se si vuole acquisire un altra coppia: ");
             risultato_lettura = scanf ("%d",
                                        &acquisizione_finita);
@@ -506,9 +506,9 @@ int controllo_riflessivita (rel_bin verifica)
     riscontro = 0;
     secondo_riscontro = 0;
 
-    /*Verifica riflessività*/
+    /*Verifica riflessivita'*/
 
-    /*Definizione: una relazione per la quale esiste almeno un elemento che non e'in relazione con sé stesso non soddisfa la definizione di riflessività*/
+    /*Definizione: una relazione per la quale esiste almeno un elemento che non e'in relazione con se' stesso non soddisfa la definizione di riflessività*/
 
     while ( (i < verifica.dimensione) && (k < verifica.dimensione))
     {
@@ -518,7 +518,7 @@ int controllo_riflessivita (rel_bin verifica)
         riscontro = 0;
         secondo_riscontro = 0;
         if (verifica.primo_termine[i] == verifica.secondo_termine[i])
-            riscontro++; /****Controllo se c'è stato un riscontro a,a****/
+            riscontro++; /****Controllo se c'e' stato un riscontro a,a****/
         secondo_riscontro++;
         if (riscontro != 0)
         {
@@ -532,7 +532,7 @@ int controllo_riflessivita (rel_bin verifica)
             riscontro = 0;
             secondo_riscontro = 0;
 
-            /***************** Controllo la riflessività per gli elementi del primo insieme ******************************/
+            /***************** Controllo la riflessivita' per gli elementi del primo insieme ******************************/
 
             while (j < verifica.dimensione)
             {
@@ -550,7 +550,7 @@ int controllo_riflessivita (rel_bin verifica)
 
             j = 0;
 
-            /***************** Controllo la riflessività per gli elementi del secondo insieme ******************************/
+            /***************** Controllo la riflessivita' per gli elementi del secondo insieme ******************************/
 
             while (j < verifica.dimensione)
             {
@@ -568,7 +568,7 @@ int controllo_riflessivita (rel_bin verifica)
             if (riscontro != 0)
                 i++;
 
-            /**** Se non c'è stato un riscontro di riflessività esco e imposto la riflessività a 0 *****/
+            /**** Se non c'e' stato un riscontro di riflessivita' esco e imposto la riflessività a 0 *****/
 
             else
             {
@@ -601,13 +601,13 @@ int controllo_transitivita (rel_bin verifica)
         k,
         transitivita;
 
-    /*IMPOSTO LA TRANSITIVITA INIZIALMENTE COME VERA E AZZERO I CONTATORI*/
+    /*IMPOSTO LA TRANSITIVITA' INIZIALMENTE COME VERA E AZZERO I CONTATORI*/
     transitivita = 1;
     i = 0;
     j = 0;
     k = 0;
 
-    /*VERIFICA TRANSITIVITà PER NUMERI*/
+    /*VERIFICA TRANSITIVITa' PER NUMERI*/
 
 
     while (i < verifica.dimensione)
