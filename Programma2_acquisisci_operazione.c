@@ -82,22 +82,22 @@ int main()
 
     while(ripeti == 1)
     {
-		printf("\n **************************************");
-		printf("*************************\n");
-		printf("\n  Questo programma acquisisce nel seguente");
-		printf(" ordine:\n");
-		printf("\n  1) Un insieme;\n  2) Una relazione binaria su ");
-		printf("quell'insieme;\n  3) Un'operazione binaria su quell");
-		printf("'insieme.\n\n  Poi verifica se l'insieme e' chiuso ");
-		printf("rispetto all'operazione \n ");
-		printf(" e se la relazione e' una");
-		printf(" congruenza rispetto all'operazione.\n");
-		printf("\n **********************************");
-		printf("*****************************\n");
-		printf("\n\n  Digitare:\n   1 - se si vuole iniziare con");
-		printf(" l'acquisizione dell'insieme,\n   2 - se si vuole ");
-		printf("inserire l'insieme vuoto,");
-		printf("\n   3 - terminare il programma: ");
+        printf("\n **************************************");
+        printf("*************************\n");
+        printf("\n  Questo programma acquisisce nel seguente");
+        printf(" ordine:\n");
+        printf("\n  1) Un insieme;\n  2) Una relazione binaria su ");
+        printf("quell'insieme;\n  3) Un'operazione binaria su quell");
+        printf("'insieme.\n\n  Poi verifica se l'insieme e' chiuso ");
+        printf("rispetto all'operazione \n ");
+        printf(" e se la relazione e' una");
+        printf(" congruenza rispetto all'operazione.\n");
+        printf("\n **********************************");
+        printf("*****************************\n");
+        printf("\n\n  Digitare:\n   1 - se si vuole iniziare con");
+        printf(" l'acquisizione dell'insieme,\n   2 - se si vuole ");
+        printf("inserire l'insieme vuoto,");
+        printf("\n   3 - terminare il programma: ");
 
         do
         {
@@ -110,8 +110,8 @@ int main()
                 scelta=4;
             }
         }
-        while((scelta != 1 && scelta != 2 
-			&& scelta != 3) || lettura_effettuata != 1);
+        while((scelta != 1 && scelta != 2
+                && scelta != 3) || lettura_effettuata != 1);
 
         if(scelta == 1)
         {
@@ -125,15 +125,15 @@ int main()
         }
         if(scelta == 2)
         {
-			printf("\n\n ************** INSIEME");
-			printf("VUOTO **********************\n");
-			insieme = crea_insieme_vuoto();
-			printf("\n  L'insieme che si e' scelto e' vuoto,");
-			printf(" quindi  qualsiasi \n  sia la relazione");
-			printf(", simmetria, riflessivita' e transitivita'\n");
-			printf("  sono sempre verificate.\n  Per convenzione ");
-			printf("diciamo anche che qualsiasi sia\n l'operazione");
-			printf(" e' chiusa rispetto all'insieme");
+            printf("\n\n ************** INSIEME");
+            printf("VUOTO **********************\n");
+            insieme = crea_insieme_vuoto();
+            printf("\n  L'insieme che si e' scelto e' vuoto,");
+            printf(" quindi  qualsiasi \n  sia la relazione");
+            printf(", simmetria, riflessivita' e transitivita'\n");
+            printf("  sono sempre verificate.\n  Per convenzione ");
+            printf("diciamo anche che qualsiasi sia\n l'operazione");
+            printf(" e' chiusa rispetto all'insieme");
         }
 
         printf("\n\n  Digitare:\n   1 - se si vuole acquisire");
@@ -167,23 +167,23 @@ insieme_t acquisisci_insieme()
 
     insieme_t insieme;
 
-	/*variabile contatore */
-    int 	i;					 
+    /*variabile contatore */
+    int 	i;
     /*variabile contatore*/
-	int 	j;				 	 
+    int 	j;
     /*variabile per terminare l'acquisizione*/
-	int 	finisci_di_acquisire;
+    int 	finisci_di_acquisire;
     /*variabile per l'acquisizione dell'elemento 0*/
-	int 	zeri;
+    int 	zeri;
     /*variabile per verificare che la
-	acquisizione vada a buon fine*/
-    int 	elemento_acquisito;	 
-	/*variabile necessaria allo
-	svuotamento del buffer*/
-    char	carattere_non_letto; 
-	/*variabile per acquisire ogni
-	elemento temporaneamente*/
-    double temporaneo;			 
+    acquisizione vada a buon fine*/
+    int 	elemento_acquisito;
+    /*variabile necessaria allo
+    svuotamento del buffer*/
+    char	carattere_non_letto;
+    /*variabile per acquisire ogni
+    elemento temporaneamente*/
+    double temporaneo;
 
     /*inizializzo le variabili*/
 
@@ -197,7 +197,7 @@ insieme_t acquisisci_insieme()
 
     /*alloco memoria*/
     insieme.elementi_insieme = (double *)
-								malloc (insieme.numero_elementi);
+                               malloc (insieme.numero_elementi);
 
     /*inizio la vera e propria acquisizione*/
 
@@ -205,11 +205,11 @@ insieme_t acquisisci_insieme()
 
     /*chiedo se l'utente vuole inserire lo 0*/
 
-	printf("\n\n ************** ACQUISIZIONE DELL'");
-	printf("INSIEME **********************\n");
-	printf("\n\n  Digitare:\n   1 - se l'elemento 0");
-	printf("appartiene all insieme");
-	printf("\n   2 - nel caso non gli appartiene: ");
+    printf("\n\n ************** ACQUISIZIONE DELL'");
+    printf("INSIEME **********************\n");
+    printf("\n\n  Digitare:\n   1 - se l'elemento 0");
+    printf("appartiene all insieme");
+    printf("\n   2 - nel caso non gli appartiene: ");
     do
     {
         elemento_acquisito = scanf("%d",&zeri);
@@ -223,10 +223,10 @@ insieme_t acquisisci_insieme()
     while(elemento_acquisito != 1 || zeri != 1 && zeri != 2);
     if (zeri == 1)
     {
-		insieme.elementi_insieme = (double *) 
-			realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
-		insieme.elementi_insieme[i] = 0;
-		i = 1;
+        insieme.elementi_insieme = (double *)
+                                   realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
+        insieme.elementi_insieme[i] = 0;
+        i = 1;
     }
 
     /*faccio partire i i+1 se c'e' lo zero*/
@@ -234,57 +234,57 @@ insieme_t acquisisci_insieme()
     if(zeri == 2)
         i = 0;
 
-	printf("\n\n  Per terminare l'acquisizione digitare 0\n\n");
+    printf("\n\n  Per terminare l'acquisizione digitare 0\n\n");
 
     while(finisci_di_acquisire != 1)
     {
-		insieme.elementi_insieme = (double *)
-			realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
-		printf("\n  Digitare ora il %d elemento: ",i+1);
-		elemento_acquisito = scanf("%lf",&temporaneo);
+        insieme.elementi_insieme = (double *)
+                                   realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
+        printf("\n  Digitare ora il %d elemento: ",i+1);
+        elemento_acquisito = scanf("%lf",&temporaneo);
 
-		if(temporaneo == 0)
-		{
-			finisci_di_acquisire = 1;
-			insieme.numero_elementi = i;
-		}
+        if(temporaneo == 0)
+        {
+            finisci_di_acquisire = 1;
+            insieme.numero_elementi = i;
+        }
 
-		if(i >= 0)
-			insieme.elementi_insieme[i] = temporaneo;
+        if(i >= 0)
+            insieme.elementi_insieme[i] = temporaneo;
 
-		for(j = i - 1; j >= 0; j--)
-		{
-			if(elemento_acquisito != 1 || 
-			temporaneo == insieme.elementi_insieme[j])
-			{
-				do
-				carattere_non_letto = getchar();
-				while (carattere_non_letto != '\n');
-				i--;
-				j = 0;
-			}
-			
-		}
-		i++;
-	}
+        for(j = i - 1; j >= 0; j--)
+        {
+            if(elemento_acquisito != 1 ||
+                    temporaneo == insieme.elementi_insieme[j])
+            {
+                do
+                    carattere_non_letto = getchar();
+                while (carattere_non_letto != '\n');
+                i--;
+                j = 0;
+            }
+
+        }
+        i++;
+    }
 
 
     /***********************/
     /* stampa dell'insieme */
     /***********************/
-	printf("\n\n ************** STAMPA DELL'");
-	printf("INSIEME ***************************\n");
-	printf("\n\n  L'insieme acquisito e':");
-	printf("\n\n  { ");
+    printf("\n\n ************** STAMPA DELL'");
+    printf("INSIEME ***************************\n");
+    printf("\n\n  L'insieme acquisito e':");
+    printf("\n\n  { ");
     i=0;
     while(i < insieme.numero_elementi)
     {
-		printf("%.2lf",insieme.elementi_insieme[i]);
+        printf("%.2lf",insieme.elementi_insieme[i]);
         if(i+1 < insieme.numero_elementi)
             printf(" ; ");
         i++;
     }
-	printf(" }\n\n");
+    printf(" }\n\n");
 
 
 
@@ -301,8 +301,8 @@ insieme_t crea_insieme_vuoto()
 
 rel_bin acquisisci_rel_bin(insieme_t insieme)
 {
-	printf("\n\n ********* ACQUISIZIONE DELLA");
-	printf("RELAZIONE BINARIA ****************\n");
+    printf("\n\n ********* ACQUISIZIONE DELLA");
+    printf("RELAZIONE BINARIA ****************\n");
     rel_bin relazione;
 
     int acquisizione_finita,
@@ -327,13 +327,13 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
 
         /*Acquisisco i termini della coppia*/
 
-		printf ("\n\n  Inserisci i termini della coppia \n ");
-		relazione.primo_termine = (double *) 
-			realloc (relazione.primo_termine,
-				(relazione.dimensione+1) * sizeof (double));
-		relazione.secondo_termine = (double *) 
-			realloc (relazione.secondo_termine,
-				(relazione.dimensione+1) * sizeof (double));
+        printf ("\n\n  Inserisci i termini della coppia \n ");
+        relazione.primo_termine = (double *)
+                                  realloc (relazione.primo_termine,
+                                           (relazione.dimensione+1) * sizeof (double));
+        relazione.secondo_termine = (double *)
+                                    realloc (relazione.secondo_termine,
+                                             (relazione.dimensione+1) * sizeof (double));
         risultato_lettura = 0;
 
 
@@ -342,20 +342,21 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
         {
             printf ("   Primo Termine: ");
             relazione.primo_termine[relazione.dimensione - 1] =
-				acquisisci_elemento(insieme);
+                acquisisci_elemento(insieme);
         }
         primo_termine_acquisito = 1;
 
         /*Acquisisco il secondo termine*/
         if (primo_termine_acquisito == 1)
         {
-			printf ("    Secondo Termine: ");
-			relazione.secondo_termine[relazione.dimensione - 1]
-			= acquisisci_elemento(insieme);
-			for(i=relazione.dimensione-2; i>=0; i--)
-				if(relazione.primo_termine[relazione.dimensione - 1]
-					== relazione.primo_termine[i])
-					if(relazione.secondo_termine[relazione.dimensione -1] == relazione.secondo_termine[i])
+            printf ("    Secondo Termine: ");
+            relazione.secondo_termine[relazione.dimensione - 1]
+                = acquisisci_elemento(insieme);
+            for(i=relazione.dimensione-2; i>=0; i--)
+                if(relazione.primo_termine[relazione.dimensione - 1]
+                        == relazione.primo_termine[i])
+                    if(relazione.secondo_termine[relazione.dimensione -1]
+                            == relazione.secondo_termine[i])
                     {
                         relazione.dimensione--;
                         i = 0;
@@ -366,13 +367,13 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
 
         do
         {
-			printf("\n\n  Digitare:\n   0 - per");
-			printf("terminare l'acquisizione,");
-			printf("\n   1 - se si vuole acquisire un altra coppia: ");
-			risultato_lettura = scanf ("%d",
+            printf("\n\n  Digitare:\n   0 - per");
+            printf("terminare l'acquisizione,");
+            printf("\n   1 - se si vuole acquisire un altra coppia: ");
+            risultato_lettura = scanf ("%d",
                                        &acquisizione_finita);
             if (acquisizione_finita < 0 ||
-				acquisizione_finita > 1 || risultato_lettura != 1)
+                    acquisizione_finita > 1 || risultato_lettura != 1)
                 do
                     carattere_non_letto = getchar();
                 while (carattere_non_letto != '\n');
@@ -396,9 +397,9 @@ void stampa (rel_bin stampa)
 
     while (i < stampa.dimensione)
     {
-		printf ("(%.2lf,%.2lf)",
-			stampa.primo_termine[i],
-			stampa.secondo_termine[i]);
+        printf ("(%.2lf,%.2lf)",
+                stampa.primo_termine[i],
+                stampa.secondo_termine[i]);
         if (i+1 != stampa.dimensione)
             printf (" ; ");
         i++;
@@ -429,8 +430,10 @@ int acquisisci_elemento(insieme_t insieme)
             do
                 carattere_non_letto = getchar();
             while (carattere_non_letto != '\n');
-            printf ("\n  C'e'un errore, reinserire il termine e verificare\n");
-            printf("  che appartenga all'insieme precedentemente inserito: \n ");
+            printf ("\n  C'e'un errore, reinserire ");
+            printf ("il termine e verificare\n");
+            printf ("  che appartenga all'insieme");
+            printf ("precedentemente inserito: \n ");
         }
         lettura_corretta = scanf("%lf",&elemento);
         /* verifico se l'elemento che si vuole utilizzare nella relazione */
@@ -466,19 +469,28 @@ operazione_t acquisisci_operazione(insieme_t insieme)
     operazione.risultati = (double *) malloc (2);
     operazione.operando_a = (double *) malloc (2);
     operazione.operando_b = (double *) malloc (2);
-    printf("\n\n ********* ACQUISIZIONE DELL'OPERAZIONE ************************\n");
+    printf("\n\n ********* ACQUISIZIONE ");
+    printf("DELL'OPERAZIONE ************************\n");
     printf(" \n\n  Inserire ora i risultati dell'operazioni: \n");
-    printf(" \n  Digitare 999 per risultati impossibili o indeterminati. \n");
+    printf(" \n  Digitare 999 per risultati ");
+    printf("impossibili o indeterminati. \n");
     for(i = 0; i < insieme.numero_elementi; i++)
     {
         for(j = 0; j < insieme.numero_elementi; j++)
         {
-            operazione.risultati = (double *) realloc (operazione.risultati, (dimensione+1) * sizeof (double));
-            operazione.operando_a = (double *) realloc (operazione.operando_a, (dimensione+1) * sizeof (double));
-            operazione.operando_b = (double *) realloc (operazione.operando_b, (dimensione+1) * sizeof (double));
+            operazione.risultati = (double *)
+                                   realloc (operazione.risultati,
+                                            (dimensione+1) * sizeof (double));
+            operazione.operando_a = (double *)
+                                    realloc (operazione.operando_a,
+                                             (dimensione+1) * sizeof (double));
+            operazione.operando_b = (double *)
+                                    realloc (operazione.operando_b,
+                                             (dimensione+1) * sizeof (double));
             operazione.operando_a[dimensione] = insieme.elementi_insieme[i];
             operazione.operando_b[dimensione] = insieme.elementi_insieme[j];
-            printf("\n  %f * %f = ",insieme.elementi_insieme[i],insieme.elementi_insieme[j]);
+            printf("\n  %f * %f = ",insieme.elementi_insieme[i],
+                   insieme.elementi_insieme[j]);
             scanf("%lf",&operazione.risultati[dimensione]);
             dimensione++;
         }
@@ -509,7 +521,8 @@ int controllo_chiusura(insieme_t insieme,operazione_t operazione)
         if(chiusura == 0)
             i = (insieme.numero_elementi*insieme.numero_elementi);
     }
-    printf("\n\n ************ CHIUSURA *****************************************\n");
+    printf("\n\n ************ CHIUSURA **********************");
+    printf("*******************\n");
     if(chiusura == 0)
         printf("\n\n  La chiusura non e' verificata\n");
     if(chiusura == 1)
@@ -538,7 +551,7 @@ int controllo_riflessivita (rel_bin verifica)
     /*Verifica riflessivita'*/
 
     /*Definizione: una relazione per la quale esiste almeno un elemento che non e'in relazione
-	con se' stesso non soddisfa la definizione di riflessivita'*/
+    con se' stesso non soddisfa la definizione di riflessivita'*/
 
     while ( (i < verifica.dimensione) && (k < verifica.dimensione))
     {
@@ -548,7 +561,7 @@ int controllo_riflessivita (rel_bin verifica)
         riscontro = 0;
         secondo_riscontro = 0;
         if (verifica.primo_termine[i] == verifica.secondo_termine[i])
-            riscontro++; /****Controllo se c'e' stato un riscontro a,a****/
+            riscontro++; /**Controllo se c'e' stato un riscontro a,a**/
         secondo_riscontro++;
         if (riscontro != 0)
         {
@@ -570,8 +583,10 @@ int controllo_riflessivita (rel_bin verifica)
                     j++;
                 else
                 {
-                    if (verifica.primo_termine[i] == verifica.primo_termine[j])
-                        if (verifica.primo_termine[j] == verifica.secondo_termine[j])
+                    if (verifica.primo_termine[i] ==
+                            verifica.primo_termine[j])
+                        if (verifica.primo_termine[j] ==
+                                verifica.secondo_termine[j])
                             riscontro++;
 
                     j++;
@@ -588,8 +603,10 @@ int controllo_riflessivita (rel_bin verifica)
                     j++;
                 else
                 {
-                    if (verifica.secondo_termine[k] == verifica.secondo_termine[j])
-                        if (verifica.primo_termine[j] == verifica.secondo_termine[j])
+                    if (verifica.secondo_termine[k] ==
+                            verifica.secondo_termine[j])
+                        if (verifica.primo_termine[j] ==
+                                verifica.secondo_termine[j])
                             secondo_riscontro++;
 
                     j++;
@@ -648,15 +665,18 @@ int controllo_transitivita (rel_bin verifica)
         {
             k = 0;
 
-            if (verifica.secondo_termine[i] == verifica.primo_termine[j])
+            if (verifica.secondo_termine[i] ==
+                    verifica.primo_termine[j])
             {
                 transitivita = 0;
 
                 while (k < verifica.dimensione)
                 {
-                    if (verifica.primo_termine[i] == verifica.primo_termine[k])
+                    if (verifica.primo_termine[i] ==
+                            verifica.primo_termine[k])
                     {
-                        if (verifica.secondo_termine[k]==verifica.secondo_termine[j])
+                        if (verifica.secondo_termine[k] ==
+                                verifica.secondo_termine[j])
                         {
                             transitivita = 1;
                             k = verifica.dimensione;
@@ -706,14 +726,15 @@ int relazione_equivalenza (rel_bin verifica)
     }
 
     if (riflessivita == 0)
-        printf ("\n   non e'una relazione di equivalenza perche' e' non riflessiva\n");
+        printf ("\n   non e'una relazione di equivalenza ");
+    printf ("perche' non e' riflessiva\n");
 
     if (simmetria == 0)
-        printf ("\n   non e'una relazione di equivalenza perche' e' non simmetrica\n");
-
+        printf ("\n   non e'una relazione di equivalenza ");
+    printf ("perche' non e' simmetrica\n");
     if (transitivita == 0)
-        printf ("\n   non e'una relazione di equivalenza perche' e' non transitiva\n");
-
+        printf ("\n   non e'una relazione di equivalenza ");
+    printf ("perche' non e' transitiva\n");
     return equivalenza;
 }
 
@@ -741,8 +762,10 @@ int controllo_simmetria (rel_bin verifica)
         while ( j < verifica.dimensione)
         {
 
-            if (verifica.primo_termine[i] == verifica.secondo_termine[j])
-                if (verifica.primo_termine[j] == verifica.secondo_termine[i])
+            if (verifica.primo_termine[i] ==
+                    verifica.secondo_termine[j])
+                if (verifica.primo_termine[j] ==
+                        verifica.secondo_termine[i])
                     riscontro++;
             j++;
         }
@@ -761,7 +784,10 @@ int controllo_simmetria (rel_bin verifica)
 }
 
 
-void controllo_congruenza(rel_bin relazione, insieme_t insieme, operazione_t operazione,int chiusura)
+void controllo_congruenza(rel_bin relazione,
+                          insieme_t insieme,
+                          operazione_t operazione,
+                          int chiusura)
 {
     printf("\n\n ********* CONTROLLO LA CONGRUENZA ***************************\n");
     int equivalenza,
@@ -779,22 +805,40 @@ void controllo_congruenza(rel_bin relazione, insieme_t insieme, operazione_t ope
 
     for(i = 0; i<relazione.dimensione; i++)
     {
-        for(j=0; j<(insieme.numero_elementi*insieme.numero_elementi); j++)
+        for(j=0;
+                j<(insieme.numero_elementi*insieme.numero_elementi);
+                j++)
         {
-            if(relazione.primo_termine[i] == operazione.operando_a[j])
-                for(k = 0; k<(insieme.numero_elementi*insieme.numero_elementi); k++)
-                    if(relazione.secondo_termine[i] == operazione.operando_a[k] && operazione.operando_b[j] == operazione.operando_b[k])
-                        if(operazione.risultati[j] != operazione.risultati[k])
+            if(relazione.primo_termine[i] ==
+                    operazione.operando_a[j])
+                for(k = 0;
+                        k<(insieme.numero_elementi*insieme.numero_elementi);
+                        k++)
+                    if(relazione.secondo_termine[i] ==
+                            operazione.operando_a[k] &&
+                            operazione.operando_b[j] ==
+                            operazione.operando_b[k])
+
+                        if(operazione.risultati[j]
+                                != operazione.risultati[k])
                         {
                             controllo = 0;
                             k = (insieme.numero_elementi*insieme.numero_elementi);
                             j = (insieme.numero_elementi*insieme.numero_elementi);
                             i = relazione.dimensione;
                         }
-            if(relazione.primo_termine[i] == operazione.operando_b[j])
-                for(k = 0; k<(insieme.numero_elementi*insieme.numero_elementi); k++)
-                    if(relazione.secondo_termine[i] == operazione.operando_b[k] && operazione.operando_a[j] == operazione.operando_a[k])
-                        if(operazione.risultati[j] != operazione.risultati[k])
+            if(relazione.primo_termine[i] ==
+                    operazione.operando_b[j])
+                for(k = 0;
+                        k<(insieme.numero_elementi*insieme.numero_elementi);
+                        k++)
+                    if(relazione.secondo_termine[i] ==
+                            operazione.operando_b[k] &&
+                            operazione.operando_a[j] ==
+                            operazione.operando_a[k])
+
+                        if(operazione.risultati[j] !=
+                                operazione.risultati[k])
                         {
                             controllo = 0;
                             k = (insieme.numero_elementi*insieme.numero_elementi);
