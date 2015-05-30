@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  29 MAY 2015 19:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  30 MAY 2015 23:38
 entering extended mode
 **relazione.tex
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.tex
@@ -455,235 +455,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--113
 
 [3]
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\Programma2_acquisisci_op
-erazione.c [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.479     /*Verifica riflessività*
-                                  /
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:é\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.481 ...n elemento che non e'in relazione con sé 
-                                                  stesso non soddisfa la def...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.481 ... soddisfa la definizione di riflessività*
-                                                  /
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.486         /*Verifica riflessività 
-                                      per numeri*/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.491 ...      riscontro++; /****Controllo se c'è 
-                                                  stato un riscontro a,a****/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[14]
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.505 ...************** Controllo la riflessività 
-                                                  per gli elementi del primo...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.523 ...************** Controllo la riflessività 
-                                                  per gli elementi del secon...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[15]
-
-! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.541                 /**** Se non c'è 
-                                       stato un riscontro di riflessività es...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.541 ...n c'è stato un riscontro di riflessività 
-                                                  esco e imposto la riflessi...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.541 ...lessività esco e imposto la riflessività 
-                                                  a 0 *****/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.561 	/********* Controllo se è 
-                                 riflessiva *******************/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.586     /*VERIFICA TRANSITIVITà 
-                                  PER NUMERI*/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[16]
-
-! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.630     /********** Controllo se la relazione è 
-                                                  Transitiva *********/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[17]
-
-! Package inputenc Error: Unicode char \u8:à\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.638 ...************ Fine controllo Transitività 
-                                                  ************/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[18]
-
-! Package inputenc Error: Unicode char \u8:è\@empty\lst@righthss not set up for
- use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.713     /**** Controllo se la simmetria è 
-                                            stata verificata ****/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[19] [20]) [21]
+erazione.c [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+[18] [19] [20]) [21]
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.aux)
  ) 
 Here is how much of TeX's memory you used:
- 4577 strings out of 493921
- 62387 string characters out of 3144865
- 229859 words of memory out of 3000000
- 7838 multiletter control sequences out of 15000+200000
+ 4574 strings out of 493921
+ 62315 string characters out of 3144865
+ 230859 words of memory out of 3000000
+ 7835 multiletter control sequences out of 15000+200000
  10826 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  37i,7n,40p,390b,1575s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -694,7 +474,7 @@ Here is how much of TeX's memory you used:
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on relazione.pdf (23 pages, 140951 bytes).
+Output written on relazione.pdf (23 pages, 142390 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
