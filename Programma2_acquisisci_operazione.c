@@ -68,9 +68,9 @@ int main()
   /*variabile per controllare che la
   lettura sia avvenuta correttamente*/
   int lettura_effettuata;
-  /*variabile per dare la possibilità
+  /*variabile per dare la possibilita'
   all'utente di utilizzare il programma
-  più di una volta aprendolo solamente
+  piu' di una volta aprendolo solamente
   una volta*/
   int ripeti;
   /*variabile per il salvataggio del

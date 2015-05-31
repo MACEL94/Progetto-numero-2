@@ -9,5 +9,5 @@
 \contentsline {subsection}{\numberline {3.3}Passi del programma}{3}
 \contentsline {section}{\numberline {4}Implementazione dell'algoritmo}{4}
 \contentsline {subsection}{\numberline {4.1}Programma}{4}
-\contentsline {subsection}{\numberline {4.2}Makefile}{23}
-\contentsline {section}{\numberline {5}Testing del programma}{24}
+\contentsline {subsection}{\numberline {4.2}Makefile}{24}
+\contentsline {section}{\numberline {5}Testing del programma}{25}
