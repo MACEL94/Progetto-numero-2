@@ -226,7 +226,8 @@ insieme_t acquisisci_insieme()
   if (zeri == 1)
   {
     insieme.elementi_insieme = (double *)
-                               realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
+                               realloc (insieme.elementi_insieme,
+                                         (i+1) * sizeof (double));
     insieme.elementi_insieme[i] = 0;
     i = 1;
   }
@@ -332,12 +333,16 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
     /*Acquisisco i termini della coppia*/
 
     printf ("\n\n  Inserisci i termini della coppia \n ");
+
     relazione.primo_termine = (double *)
                               realloc (relazione.primo_termine,
-                                       (relazione.dimensione+1) * sizeof (double));
+                                       (relazione.dimensione+1)
+                                       * sizeof (double));
+
     relazione.secondo_termine = (double *)
                                 realloc (relazione.secondo_termine,
-                                         (relazione.dimensione+1) * sizeof (double));
+                                         (relazione.dimensione+1)
+                                         * sizeof (double));
     risultato_lettura = 0;
 
 
@@ -430,8 +435,10 @@ int acquisisci_elemento(insieme_t insieme)
 
   do
   {
-    /* controllo che i valori siano stati letti correttamente */
-    /* e nel caso non sia cosi svuoto il buffer */
+    /* controllo che i valori siano
+        stati letti correttamente
+     e nel caso svuoto il buffer */
+
     if(lettura_corretta != 1)
     {
       do
@@ -443,8 +450,11 @@ int acquisisci_elemento(insieme_t insieme)
       printf ("precedentemente inserito: \n ");
     }
     lettura_corretta = scanf("%lf",&elemento);
-    /* verifico se l'elemento che si vuole utilizzare nella relazione */
-    /* e' presente nell'insieme inserito */
+
+    /* verifico se l'elemento che si
+       vuole utilizzare nella relazione
+     e' presente nell'insieme inserito */
+
     elemento_trovato = 0;
 
     for(i=0; i < insieme.numero_elementi; i++)
@@ -579,7 +589,8 @@ int controllo_riflessivita (rel_bin verifica)
 
   /*Verifica riflessivita'*/
 
-  /*Definizione: una relazione per la quale esiste almeno un elemento che non e'in relazione
+  /*Definizione: una relazione per la quale
+   esiste almeno un elemento che non e'in relazione
   con se' stesso non soddisfa la definizione di riflessivita'*/
 
   while ( (i < verifica.dimensione) && (k < verifica.dimensione))
@@ -590,7 +601,7 @@ int controllo_riflessivita (rel_bin verifica)
     riscontro = 0;
     secondo_riscontro = 0;
     if (verifica.primo_termine[i] == verifica.secondo_termine[i])
-      riscontro++; /**Controllo se c'e' stato un riscontro a,a**/
+      riscontro++;/*Controllo se c'e' stato un riscontro a,a*/
     secondo_riscontro++;
     if (riscontro != 0)
     {
@@ -604,7 +615,7 @@ int controllo_riflessivita (rel_bin verifica)
       riscontro = 0;
       secondo_riscontro = 0;
 
-      /***************** Controllo la riflessivita' per gli elementi del primo insieme ******************************/
+      /* Controllo la riflessivita' per gli elementi del primo insieme */
 
       while (j < verifica.dimensione)
       {
@@ -624,7 +635,7 @@ int controllo_riflessivita (rel_bin verifica)
 
       j = 0;
 
-      /***************** Controllo la riflessivita' per gli elementi del secondo insieme ******************************/
+      /*Controllo la riflessivita' per gli elementi del secondo insieme*/
 
       while (j < verifica.dimensione)
       {
@@ -644,7 +655,8 @@ int controllo_riflessivita (rel_bin verifica)
       if (riscontro != 0)
         i++;
 
-      /**** Se non c'e' stato un riscontro di riflessivita' esco e imposto la riflessivita' a 0 *****/
+      /**** Se non c'e' stato un riscontro di riflessivita'
+       esco e imposto la riflessivita' a 0 *****/
 
       else
       {
@@ -677,7 +689,9 @@ int controllo_transitivita (rel_bin verifica)
       k,
       transitivita;
 
-  /*IMPOSTO LA TRANSITIVITA' INIZIALMENTE COME VERA E AZZERO I CONTATORI*/
+  /*IMPOSTO LA TRANSITIVITA' INIZIALMENTE COME VERA
+   E AZZERO I CONTATORI*/
+
   transitivita = 1;
   i = 0;
   j = 0;
@@ -823,7 +837,8 @@ void controllo_congruenza(rel_bin relazione,
                           operazione_t operazione,
                           int chiusura)
 {
-  printf("\n\n ********* CONTROLLO LA CONGRUENZA ***************************\n");
+  printf("\n\n ********* CONTROLLO LA CONGRUENZA");
+  printf(" ***************************\n");
   int equivalenza,
       controllo,
       i,
@@ -857,14 +872,18 @@ void controllo_congruenza(rel_bin relazione,
                 != operazione.risultati[k])
             {
               controllo = 0;
-              k = (insieme.numero_elementi*insieme.numero_elementi);
-              j = (insieme.numero_elementi*insieme.numero_elementi);
+              k = (insieme.numero_elementi*
+                   insieme.numero_elementi);
+
+              j = (insieme.numero_elementi*
+                   insieme.numero_elementi);
+
               i = relazione.dimensione;
             }
       if(relazione.primo_termine[i] ==
           operazione.operando_b[j])
         for(k = 0;
-            k<(insieme.numero_elementi*insieme.numero_elementi);
+            k < insieme.numero_elementi*insieme.numero_elementi);
             k++)
           if(relazione.secondo_termine[i] ==
               operazione.operando_b[k] &&
@@ -875,8 +894,12 @@ void controllo_congruenza(rel_bin relazione,
                 operazione.risultati[k])
             {
               controllo = 0;
-              k = (insieme.numero_elementi*insieme.numero_elementi);
-              j = (insieme.numero_elementi*insieme.numero_elementi);
+              k =  insieme.numero_elementi*
+                   insieme.numero_elementi;
+
+              j =  insieme.numero_elementi*
+                   insieme.numero_elementi;
+
               i = relazione.dimensione;
             }
     }
