@@ -416,7 +416,7 @@ void stampa (rel_bin stampa)
     i++;
   }
   printf("}\n");
-  return ;
+  return;
 }
 
 int acquisisci_elemento(insieme_t insieme)
@@ -615,7 +615,8 @@ int controllo_riflessivita (rel_bin verifica)
       riscontro = 0;
       secondo_riscontro = 0;
 
-      /* Controllo la riflessivita' per gli elementi del primo insieme */
+      /* Controllo la riflessivita' per
+	  gli elementi del primo insieme */
 
       while (j < verifica.dimensione)
       {
@@ -635,7 +636,8 @@ int controllo_riflessivita (rel_bin verifica)
 
       j = 0;
 
-      /*Controllo la riflessivita' per gli elementi del secondo insieme*/
+      /*Controllo la riflessivita' per gli
+	  elementi del secondo insieme*/
 
       while (j < verifica.dimensione)
       {
