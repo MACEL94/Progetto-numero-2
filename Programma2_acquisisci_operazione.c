@@ -150,7 +150,7 @@ int main()
                 ripeti = 1;
             }
         }
-        while(lettura_effettuata != 1 || ripeti != 1 && ripeti != 2);
+        while(lettura_effettuata != 1 || (ripeti != 1 && ripeti != 2));
     }
 
     return 0;
@@ -208,7 +208,7 @@ insieme_t acquisisci_insieme()
     printf("\n\n ************** ACQUISIZIONE DELL'");
     printf("INSIEME **********************\n");
     printf("\n\n  Digitare:\n   1 - se l'elemento 0");
-    printf("appartiene all insieme");
+    printf(" appartiene all insieme");
     printf("\n   2 - nel caso non gli appartiene: ");
     do
     {
@@ -220,7 +220,7 @@ insieme_t acquisisci_insieme()
             while (carattere_non_letto != '\n');
         }
     }
-    while(elemento_acquisito != 1 || zeri != 1 && zeri != 2);
+    while(elemento_acquisito != 1 || (zeri != 1 && zeri != 2));
     if (zeri == 1)
     {
         insieme.elementi_insieme = (double *)
@@ -239,7 +239,8 @@ insieme_t acquisisci_insieme()
     while(finisci_di_acquisire != 1)
     {
         insieme.elementi_insieme = (double *)
-                                   realloc (insieme.elementi_insieme, (i+1) * sizeof (double));
+                                   realloc (insieme.elementi_insieme,
+                                             (i+1) * sizeof (double));
         printf("\n  Digitare ora il %d elemento: ",i+1);
         elemento_acquisito = scanf("%lf",&temporaneo);
 
@@ -457,10 +458,11 @@ int acquisisci_elemento(insieme_t insieme)
 operazione_t acquisisci_operazione(insieme_t insieme)
 {
     operazione_t operazione;
+    char carattere_non_letto;
     int i,
         j,
-        dimensione;
-    double *risultati;
+        dimensione,
+        controllo;
 
     i = 0;
     j = 0;
@@ -491,7 +493,18 @@ operazione_t acquisisci_operazione(insieme_t insieme)
             operazione.operando_b[dimensione] = insieme.elementi_insieme[j];
             printf("\n  %f * %f = ",insieme.elementi_insieme[i],
                    insieme.elementi_insieme[j]);
-            scanf("%lf",&operazione.risultati[dimensione]);
+            do{
+
+                controllo = scanf("%lf",&operazione.risultati[dimensione]);
+            if(controllo != 1)
+            {
+                do
+                    carattere_non_letto = getchar();
+                while (carattere_non_letto != '\n');
+            }
+            }
+
+            while(controllo != 1);
             dimensione++;
         }
     }
@@ -725,16 +738,18 @@ int relazione_equivalenza (rel_bin verifica)
         equivalenza=1;
     }
 
-    if (riflessivita == 0)
+    if (riflessivita == 0){
         printf ("\n   non e'una relazione di equivalenza ");
     printf ("perche' non e' riflessiva\n");
-
-    if (simmetria == 0)
+    }
+    if (simmetria == 0){
         printf ("\n   non e'una relazione di equivalenza ");
     printf ("perche' non e' simmetrica\n");
-    if (transitivita == 0)
+    }
+    if (transitivita == 0){
         printf ("\n   non e'una relazione di equivalenza ");
     printf ("perche' non e' transitiva\n");
+    }
     return equivalenza;
 }
 
