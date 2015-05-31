@@ -883,7 +883,7 @@ void controllo_congruenza(rel_bin relazione,
       if(relazione.primo_termine[i] ==
           operazione.operando_b[j])
         for(k = 0;
-            k < insieme.numero_elementi*insieme.numero_elementi);
+            k < insieme.numero_elementi*insieme.numero_elementi;
             k++)
           if(relazione.secondo_termine[i] ==
               operazione.operando_b[k] &&
