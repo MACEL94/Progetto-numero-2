@@ -218,7 +218,8 @@ insieme_t acquisisci_insieme()
   printf("INSIEME **********************\n");
   printf("\n\n  Digitare:\n   1 - se l'elemento 0");
   printf(" appartiene all'insieme");
-  printf("\n   2 - nel caso non gli appartiene: ");
+  printf("\n   2 - se l'elemento 0 non appartiene");
+  printf(" all'insieme: ");
 
   do
   {
