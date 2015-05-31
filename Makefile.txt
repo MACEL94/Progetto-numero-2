@@ -1,6 +1,0 @@
-Test.exe: Progetto_sessione_estiva_PPL.c Makefile
-	 gcc -ansi -Wall -O Progetto_sessione_estiva_PPL.c 
-pulisci:
-	 rm -f Progetto_sessione_estiva_PPL.o
-pulisci_tutto:
-	 rm -f Progetto_sessione_estiva_PPL Progetto_sessione_estiva_PPLr.o

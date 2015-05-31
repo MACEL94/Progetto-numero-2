@@ -1,4 +1,4 @@
-﻿\documentclass[11pt, a4paper, titlepage, block]{article}
+\documentclass[11pt, a4paper, titlepage, block]{article}
 \usepackage{listings}
 \usepackage{graphicx}
 \hyphenpenalty=10000
@@ -112,6 +112,7 @@ all'operazione e se la relazione è una congruenza rispetto all'operazione.
 	-Verificare e comunicare se la congruenza della relazione rispetto all'operazione.\\
 	\newpage
 	\section{Implementazione dell'algoritmo}
+	\subsection{Programma}
 	Questa è la traduzione dei passi in C:
 	
 
@@ -130,14 +131,17 @@ all'operazione e se la relazione è una congruenza rispetto all'operazione.
 		tabsize=2
 	}
 	\lstinputlisting{../Programma2_acquisisci_operazione.c}
-	
+	\subsection{Makefile}
+\lstinputlisting[language=make]{../Makefile.}
+
+\newpage
 \section {Testing del programma}
 Spiego all'utente cosa fa il programma..
 \\
 \includegraphics[width=3in,height=3in,viewport=0 0 300 300]{../Screenshots/Capture1.JPG}
 \\
 \\
-Acquisisco l insieme e lo stampo per farlo vedere all'utente..//
+Acquisisco l insieme e lo stampo per farlo vedere all'utente..\\
 \includegraphics[width=3in,height=3in,viewport=0 0 300 300]{../Screenshots/Capture2.JPG}\\
 \\
 Acquisisco la relazione binaria e la stampo per farla vedere all'utente..\\
