@@ -13,6 +13,7 @@
 /*********************************/
 /* dichiarazione delle strutture */
 /*********************************/
+
 typedef struct Operazione
 {
   double			*operando_a;
@@ -20,7 +21,6 @@ typedef struct Operazione
   double			*risultati;
 
 } operazione_t;
-
 typedef struct RelBin
 {
   /* coppia numerica */
@@ -32,7 +32,6 @@ typedef struct RelBin
 
   int dimensione;
 } rel_bin;
-
 typedef struct Insieme
 {
   double* elementi_insieme;
@@ -62,15 +61,25 @@ void controllo_congruenza(rel_bin,insieme_t,operazione_t,int);
 
 int main()
 {
-  operazione_t operazione;
+  /*variabile per il controllo dell'acquisizione*/
   char carattere_non_letto;
+  /*variabile per il controllo della scelta*/
   int scelta;
+  /*variabile per controllare che la 
+  lettura sia avvenuta correttamente*/
   int lettura_effettuata;
+  /*variabile per dare la possibilità
+  all'utente di utilizzare il programma
+  più di una volta aprendolo solamente
+  una volta*/
   int ripeti;
+  /*variabile per il salvataggio del
+  risultato della verifica della chiusura*/
   int chiusura;
 
-  /* variabili per insieme e relazione */
-
+  /* variabili per insieme, relazione
+  e operazione*/
+  operazione_t operazione;
   insieme_t insieme;
   rel_bin relazione;
 
@@ -298,29 +307,42 @@ insieme_t acquisisci_insieme()
 
 insieme_t crea_insieme_vuoto()
 {
+  /*variabile per la struttura insieme*/
   insieme_t insieme;
+  
   insieme.elementi_insieme = (double *) malloc (1);
   insieme.numero_elementi = 0;
   return insieme;
 }
 
+/*Funzione che acquisisce la relazione binaria*/
+
 rel_bin acquisisci_rel_bin(insieme_t insieme)
 {
-  printf("\n\n ********* ACQUISIZIONE DELLA");
-  printf("RELAZIONE BINARIA ****************\n");
+	
   rel_bin relazione;
-
+  
+  /*variabile utile ad uscire dal ciclo
+  di acquisizione*/
   int acquisizione_finita,
+  /*variabile per il controllo
+  dell'acquisizione*/
       risultato_lettura,
+  /*variabile contatore*/
       i,
+  /*variabile per il primo termine*/
       primo_termine_acquisito;
-
+  /*variabile utile in caso si debba
+  svuotare il buffer*/
   char carattere_non_letto;
 
+  printf("\n\n ********* ACQUISIZIONE DELLA");
+  printf("RELAZIONE BINARIA ****************\n");
+  /*inizializzo le variabili*/
   acquisizione_finita = 1;
   primo_termine_acquisito = 0;
-
   relazione.dimensione = 0;
+  /*alloco memoria*/
   relazione.primo_termine = (double *) malloc (2);
   relazione.secondo_termine = (double *) malloc (2);
 
@@ -398,8 +420,9 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
 
 void stampa (rel_bin stampa)
 {
-
+  /*variabile contatore*/
   int i = 0;
+  
   printf("\n\n ********* STAMPA DELLA RELAZIONE BINARIA *****");
   printf ("****************\n\n  La relazione binaria e':");
   printf ("\n\n   {");
@@ -421,11 +444,17 @@ void stampa (rel_bin stampa)
 
 int acquisisci_elemento(insieme_t insieme)
 {
-  /* dichiaro le variabili */
+  /* variabile necessaria per il controllo
+  dell'acquisizione*/
   char carattere_non_letto;
-
+  /*variabile per il controllare che
+  gli elementi acquisiti siano stati
+  letti correttamente*/
   int lettura_corretta,
+  /*variabile contatore*/
       i,
+  /*variabile di controllo per verificare
+  la non ripetizione di elementi*/
       elemento_trovato;
 
   double elemento;
