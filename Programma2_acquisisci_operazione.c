@@ -208,8 +208,9 @@ insieme_t acquisisci_insieme()
   printf("\n\n ************** ACQUISIZIONE DELL'");
   printf("INSIEME **********************\n");
   printf("\n\n  Digitare:\n   1 - se l'elemento 0");
-  printf(" appartiene all insieme");
+  printf(" appartiene all'insieme");
   printf("\n   2 - nel caso non gli appartiene: ");
+
   do
   {
     elemento_acquisito = scanf("%d",&zeri);
@@ -221,6 +222,7 @@ insieme_t acquisisci_insieme()
     }
   }
   while(elemento_acquisito != 1 || (zeri != 1 && zeri != 2));
+
   if (zeri == 1)
   {
     insieme.elementi_insieme = (double *)
@@ -278,6 +280,7 @@ insieme_t acquisisci_insieme()
   printf("\n\n  L'insieme acquisito e':");
   printf("\n\n  { ");
   i=0;
+
   while(i < insieme.numero_elementi)
   {
     printf("%.2lf",insieme.elementi_insieme[i]);
@@ -353,6 +356,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       printf ("    Secondo Termine: ");
       relazione.secondo_termine[relazione.dimensione - 1]
         = acquisisci_elemento(insieme);
+
       for(i=relazione.dimensione-2; i>=0; i--)
         if(relazione.primo_termine[relazione.dimensione - 1]
             == relazione.primo_termine[i])
@@ -381,6 +385,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
     }
     while (acquisizione_finita < 0 || acquisizione_finita > 1 );
   }
+
   return relazione;
 }
 
@@ -422,6 +427,7 @@ int acquisisci_elemento(insieme_t insieme)
   /* inizializzo le variabili */
   elemento = 0;
   lettura_corretta = 1;
+
   do
   {
     /* controllo che i valori siano stati letti correttamente */
@@ -440,6 +446,7 @@ int acquisisci_elemento(insieme_t insieme)
     /* verifico se l'elemento che si vuole utilizzare nella relazione */
     /* e' presente nell'insieme inserito */
     elemento_trovato = 0;
+
     for(i=0; i < insieme.numero_elementi; i++)
       if(elemento == insieme.elementi_insieme[i])
         elemento_trovato = 1;
@@ -476,6 +483,7 @@ operazione_t acquisisci_operazione(insieme_t insieme)
   printf(" \n\n  Inserire ora i risultati dell'operazioni: \n");
   printf(" \n  Digitare 999 per risultati ");
   printf("impossibili o indeterminati. \n");
+
   for(i = 0; i < insieme.numero_elementi; i++)
   {
     for(j = 0; j < insieme.numero_elementi; j++)
