@@ -113,6 +113,7 @@ int main()
       lettura_effettuata = scanf("%d",&scelta);
       if (lettura_effettuata != 1)
       {
+          errore();
         do
           carattere_non_letto = getchar();
         while (carattere_non_letto != '\n');
@@ -153,6 +154,7 @@ int main()
       lettura_effettuata = scanf("%d",&ripeti);
       if (lettura_effettuata != 1)
       {
+          errore();
         do
           carattere_non_letto = getchar();
         while (carattere_non_letto != '\n');
@@ -182,8 +184,6 @@ insieme_t acquisisci_insieme()
   int 	j;
   /*variabile per terminare l'acquisizione*/
   int 	finisci_di_acquisire;
-  /*variabile per l'acquisizione dell'elemento 0*/
-  int 	zeri;
   /*variabile per verificare che la
   acquisizione vada a buon fine*/
   int 	elemento_acquisito;
@@ -199,7 +199,6 @@ insieme_t acquisisci_insieme()
   elemento_acquisito = 0;
   j = 0;
   i = 0;
-  zeri = 0;
   temporaneo = 1;
   insieme.numero_elementi = 50;
   finisci_di_acquisire = 0;
@@ -216,52 +215,16 @@ insieme_t acquisisci_insieme()
 
   printf("\n\n ************** ACQUISIZIONE DELL'");
   printf("INSIEME **********************\n");
-  printf("\n\n  Digitare:\n   1 - se l'elemento 0");
-  printf(" appartiene all'insieme");
-  printf("\n   2 - se l'elemento 0 non appartiene");
-  printf(" all'insieme: ");
 
-  do
-  {
-    elemento_acquisito = scanf("%d",&zeri);
-    if (elemento_acquisito != 1)
-    {
-      do
-        carattere_non_letto = getchar();
-      while (carattere_non_letto != '\n');
-    }
-  }
-  while (elemento_acquisito != 1 || (zeri != 1 && zeri != 2));
-
-  if (zeri == 1)
-  {
-    insieme.elementi_insieme = (double *)
-                               realloc (insieme.elementi_insieme,
-                                         (i+1) * sizeof (double));
-    insieme.elementi_insieme[i] = 0;
-    i = 1;
-  }
-
-  /*faccio partire i i+1 se c'e' lo zero*/
-
-  if (zeri == 2)
-    i = 0;
-
-  printf("\n\n  Per terminare l'acquisizione digitare 0\n\n");
+  printf("\n\n  Per terminare l'acquisizione digitare a\n\n");
 
   while (finisci_di_acquisire != 1)
   {
     insieme.elementi_insieme = (double *)
                                realloc (insieme.elementi_insieme,
                                         (i+1) * sizeof (double));
-    printf("\n  Digitare ora il %d elemento: ",i+1);
+    printf("\n  Digitare ora il %d° elemento: ",i+1);
     elemento_acquisito = scanf("%lf",&temporaneo);
-
-    if (temporaneo == 0)
-    {
-      finisci_di_acquisire = 1;
-      insieme.numero_elementi = i;
-    }
 
     if (i >= 0)
       insieme.elementi_insieme[i] = temporaneo;
@@ -271,9 +234,14 @@ insieme_t acquisisci_insieme()
       if (elemento_acquisito != 1 ||
           temporaneo == insieme.elementi_insieme[j])
       {
-        do
+          errore();
+        do{
+          if(carattere_non_letto == 'a'){
+            finisci_di_acquisire = 1;
+            insieme.numero_elementi = i;
+          }
           carattere_non_letto = getchar();
-        while (carattere_non_letto != '\n');
+        }while (carattere_non_letto != '\n');
         i--;
         j = 0;
       }
@@ -406,10 +374,12 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       risultato_lettura = scanf ("%d",
                                  &acquisizione_finita);
       if (acquisizione_finita < 0 ||
-          acquisizione_finita > 1 || risultato_lettura != 1)
+          acquisizione_finita > 1 || risultato_lettura != 1){
+        errore();
         do
           carattere_non_letto = getchar();
         while (carattere_non_letto != '\n');
+          }
     }
     while (acquisizione_finita < 0 || acquisizione_finita > 1 );
   }
@@ -471,6 +441,7 @@ int acquisisci_elemento(insieme_t insieme)
 
     if (lettura_corretta != 1)
     {
+        errore();
       do
         carattere_non_letto = getchar();
       while (carattere_non_letto != '\n');
@@ -556,6 +527,7 @@ operazione_t acquisisci_operazione(insieme_t insieme)
                           &operazione.risultati[dimensione]);
         if (controllo != 1)
         {
+            errore();
           do
             carattere_non_letto = getchar();
           while (carattere_non_letto != '\n');
@@ -958,5 +930,10 @@ void controllo_congruenza(rel_bin relazione,
     printf("\n\n  La congruenza e' verificata\n");
 
   return;
+}
+
+void errore(){
+    printf("\n\n   hai inserito un valore sbagliato");
+    printf("\n   reinserire: ");
 }
 
