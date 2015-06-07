@@ -982,13 +982,13 @@ void controllo_congruenza(rel_bin relazione,
 
 void errore()
 {
-  printf("\n\n   hai inserito un valore sbagliato");
-  printf("\n   reinserire: ");
+  printf("\n\n   hai inserito un valore errato");
+  printf("\n   inserire un valore corretto: ");
 }
 
 void svuota_buffer()
 {
-    /*variabile per il controllo dell'acquisizione*/
+    /*variabile per svuotare il buffer*/
     char carattere_non_letto;
     do
     carattere_non_letto = getchar();
