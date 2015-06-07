@@ -305,7 +305,7 @@ insieme_t acquisisci_insieme()
   printf(" }\n\n");
 
 
-  svuota_buffer();
+
   return insieme;
 }
 
