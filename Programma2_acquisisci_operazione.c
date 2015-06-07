@@ -526,7 +526,7 @@ operazione_t acquisisci_operazione(insieme_t insieme)
   /*variabile contatore*/
   int i,
       j,
-      /*variabile per settare la dimensione dell'array*/
+      /*variabile che stabilisce la dimensione dell'array*/
       dimensione,
       /*variabile per il controllo*/
       controllo;
@@ -868,23 +868,23 @@ int relazione_equivalenza (rel_bin verifica)
 
   if (riflessivita == 1 && simmetria == 1 && transitivita == 1)
   {
-    printf ("\n   e' una relazione di equivalenza\n");
+    printf ("\n  E' una relazione di equivalenza\n");
     equivalenza=1;
   }
 
   if (riflessivita == 0)
   {
-    printf ("\n   non e'una relazione di equivalenza ");
+    printf ("\n  Non e'una relazione di equivalenza ");
     printf ("perche' non e' riflessiva\n");
   }
   if (simmetria == 0)
   {
-    printf ("\n   non e'una relazione di equivalenza ");
+    printf ("\n  Non e'una relazione di equivalenza ");
     printf ("perche' non e' simmetrica\n");
   }
   if (transitivita == 0)
   {
-    printf ("\n   non e'una relazione di equivalenza ");
+    printf ("\n  Non e'una relazione di equivalenza ");
     printf ("perche' non e' transitiva\n");
   }
   return equivalenza;
@@ -907,11 +907,11 @@ void controllo_congruenza(rel_bin relazione,
       j,
       k;
     if(relazione.dimensione != 0)
-  equivalenza = relazione_equivalenza(relazione);
+		equivalenza = relazione_equivalenza(relazione);
     else{
-    printf("\n\n   la relazione vuota");
-    printf("non e' una relazione di equivalenza");
-    equivalenza = 0;
+    	printf("\n\n  La relazione vuota ");
+    	printf("non e' una relazione di equivalenza");
+    	equivalenza = 0;
     }
   i = 0;
   j = 0;
@@ -982,8 +982,8 @@ void controllo_congruenza(rel_bin relazione,
 
 void errore()
 {
-  printf("\n\n   hai inserito un valore errato");
-  printf("\n   inserire un valore corretto: ");
+  printf("\n\n  hai inserito un valore errato");
+  printf("\n  inserire un valore corretto: ");
 }
 
 void svuota_buffer()
