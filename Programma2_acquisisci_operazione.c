@@ -203,7 +203,7 @@ insieme_t acquisisci_insieme()
   double temporaneo;
 
   /*inizializzo le variabili*/
-
+  svuota_buffer();
   elemento_acquisito = 0;
   j = 0;
   i = 0;
