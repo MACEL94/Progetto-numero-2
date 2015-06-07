@@ -973,7 +973,7 @@ void controllo_congruenza(rel_bin relazione,
 
 
   if (equivalenza == 0 || controllo == 0 || chiusura == 0)
-    printf("\n\n  La cogruenza non e' verificata\n");
+    printf("\n\n  La congruenza non e' verificata\n");
   else
     printf("\n\n  La congruenza e' verificata\n");
 
