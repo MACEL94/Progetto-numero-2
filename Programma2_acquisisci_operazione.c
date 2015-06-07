@@ -923,9 +923,13 @@ void controllo_congruenza(rel_bin relazione,
       i,
       j,
       k;
-
+    if(relazione.dimensione != 0)
   equivalenza = relazione_equivalenza(relazione);
-
+    else{
+    printf("\n\n   la relazione vuota");
+    printf("non e' una relazione di equivalenza");
+    equivalenza = 0;
+    }
   i = 0;
   j = 0;
   k = 0;
