@@ -169,6 +169,7 @@ int main()
     while (lettura_effettuata != 1 || (ripeti != 1 && ripeti != 2));
   }
 
+  svuota_buffer();
   return 0;
 }
 
@@ -304,7 +305,7 @@ insieme_t acquisisci_insieme()
   printf(" }\n\n");
 
 
-
+  svuota_buffer();
   return insieme;
 }
 
@@ -433,6 +434,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       while (acquisizione_finita < 0 || acquisizione_finita > 1 );
     }
   }
+  svuota_buffer();
   return relazione;
 }
 
@@ -510,6 +512,7 @@ int acquisisci_elemento(insieme_t insieme)
   }
   while (lettura_corretta == 0);
 
+  svuota_buffer();
   return elemento;
 }
 
@@ -577,6 +580,7 @@ operazione_t acquisisci_operazione(insieme_t insieme)
       dimensione++;
     }
   }
+  svuota_buffer();
   return operazione;
 }
 
