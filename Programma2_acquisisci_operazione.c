@@ -59,14 +59,13 @@ void controllo_congruenza(rel_bin,
                           operazione_t,
                           int);
 void errore(void);
+void svuota_buffer(void);
 /*****************/
 /* funzione main */
 /*****************/
 
 int main()
 {
-  /*variabile per il controllo dell'acquisizione*/
-  char carattere_non_letto;
   /*variabile per il controllo della scelta*/
   int scelta;
   /*variabile per controllare che la
@@ -118,9 +117,7 @@ int main()
       if (lettura_effettuata != 1)
       {
         errore();
-        do
-          carattere_non_letto = getchar();
-        while (carattere_non_letto != '\n');
+        svuota_buffer();
         scelta=4;
       }
     }
@@ -165,9 +162,7 @@ int main()
       if (lettura_effettuata != 1 )
       {
         errore();
-        do
-          carattere_non_letto = getchar();
-        while (carattere_non_letto != '\n');
+        svuota_buffer();
         ripeti = 1;
       }
     }
@@ -342,9 +337,6 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       relazione_vuota,
       /*variabile per il primo termine*/
       primo_termine_acquisito;
-  /*variabile utile in caso si debba
-  svuotare il buffer*/
-  char carattere_non_letto;
 
   printf("\n\n ********* ACQUISIZIONE DELLA");
   printf("RELAZIONE BINARIA ****************\n");
@@ -357,9 +349,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
     if (risultato_lettura != 1 || relazione_vuota != 0 && relazione_vuota != 1 )
     {
       errore();
-      do
-        carattere_non_letto = getchar();
-      while (carattere_non_letto != '\n');
+      svuota_buffer();
     }
   }
   while(risultato_lettura != 1  || relazione_vuota != 0 && relazione_vuota != 1);
@@ -429,7 +419,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       do
       {
         printf("\n\n  Digitare:\n   0 - per");
-        printf("terminare l'acquisizione,");
+        printf(" terminare l'acquisizione,");
         printf("\n   1 - se si vuole acquisire un altra coppia: ");
         risultato_lettura = scanf ("%d",
                                    &acquisizione_finita);
@@ -437,9 +427,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
             acquisizione_finita > 1 || risultato_lettura != 1)
         {
           errore();
-          do
-            carattere_non_letto = getchar();
-          while (carattere_non_letto != '\n');
+          svuota_buffer();
         }
       }
       while (acquisizione_finita < 0 || acquisizione_finita > 1 );
@@ -476,9 +464,6 @@ void stampa (rel_bin stampa)
 
 int acquisisci_elemento(insieme_t insieme)
 {
-  /* variabile necessaria per il controllo
-  dell'acquisizione*/
-  char carattere_non_letto;
   /*variabile per il controllare che
   gli elementi acquisiti siano stati
   letti correttamente*/
@@ -502,9 +487,7 @@ int acquisisci_elemento(insieme_t insieme)
 
     if (lettura_corretta != 1)
     {
-      do
-        carattere_non_letto = getchar();
-      while (carattere_non_letto != '\n');
+      svuota_buffer();
       printf ("\n  verificare che l'elemento");
       printf (" appartenga \n  all'insieme");
       printf (" precedentemente inserito. \n ");
@@ -537,8 +520,6 @@ operazione_t acquisisci_operazione(insieme_t insieme)
 {
   /*variabile per acquisire l operazione*/
   operazione_t operazione;
-  /*variabile per svuotare il buffer*/
-  char carattere_non_letto;
   /*variabile contatore*/
   int i,
       j,
@@ -588,9 +569,7 @@ operazione_t acquisisci_operazione(insieme_t insieme)
         if (controllo != 1)
         {
           errore();
-          do
-            carattere_non_letto = getchar();
-          while (carattere_non_letto != '\n');
+          svuota_buffer();
         }
       }
 
@@ -1003,3 +982,11 @@ void errore()
   printf("\n   reinserire: ");
 }
 
+void svuota_buffer()
+{
+    /*variabile per il controllo dell'acquisizione*/
+    char carattere_non_letto;
+    do
+    carattere_non_letto = getchar();
+    while (carattere_non_letto != '\n');
+}
