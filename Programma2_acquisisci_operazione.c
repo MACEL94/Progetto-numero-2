@@ -161,7 +161,7 @@ int main()
     do
     {
       lettura_effettuata = scanf("%d",&ripeti);
-      if (lettura_effettuata != 1)
+      if (lettura_effettuata != 1 )
       {
           errore();
         do
@@ -330,6 +330,8 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       risultato_lettura,
   /*variabile contatore*/
       i,
+  /*relazione vuota*/
+      relazione_vuota,
   /*variabile per il primo termine*/
       primo_termine_acquisito;
   /*variabile utile in caso si debba
@@ -338,6 +340,23 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
 
   printf("\n\n ********* ACQUISIZIONE DELLA");
   printf("RELAZIONE BINARIA ****************\n");
+  printf("\n\n   Si vuole acquisire una relazione vuota?");
+    printf("\n\n  Digitare:\n   0 - si\n");
+    printf("   1 - no:  ");
+    do
+    {
+        risultato_lettura = scanf("%d",&relazione_vuota);
+      if (risultato_lettura != 1 || relazione_vuota != 0 && relazione_vuota != 1 )
+      {
+          errore();
+        do
+          carattere_non_letto = getchar();
+        while (carattere_non_letto != '\n');
+      }
+    }while(risultato_lettura != 1  || relazione_vuota != 0 && relazione_vuota != 1);
+if(relazione_vuota == 0)
+    printf("  si e' scelto di inserire una relazione vuota");
+
   /*inizializzo le variabili*/
   acquisizione_finita = 1;
   primo_termine_acquisito = 0;
@@ -345,7 +364,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
   /*alloco memoria*/
   relazione.primo_termine = (double *) malloc (2);
   relazione.secondo_termine = (double *) malloc (2);
-
+if(relazione_vuota == 1){
   while (acquisizione_finita == 1)
   {
     primo_termine_acquisito = 0;
@@ -414,7 +433,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
     }
     while (acquisizione_finita < 0 || acquisizione_finita > 1 );
   }
-
+}
   return relazione;
 }
 
