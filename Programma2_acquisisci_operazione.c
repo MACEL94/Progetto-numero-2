@@ -52,9 +52,13 @@ insieme_t crea_insieme_vuoto(void);
 int acquisisci_elemento(insieme_t);
 void stampa(rel_bin);
 operazione_t acquisisci_operazione(insieme_t);
-int controllo_chiusura(insieme_t,operazione_t);
-void controllo_congruenza(rel_bin,insieme_t,operazione_t,int);
-
+int controllo_chiusura(insieme_t,
+                       operazione_t);
+void controllo_congruenza(rel_bin,
+                          insieme_t,
+                          operazione_t,
+                          int);
+void errore(void);
 /*****************/
 /* funzione main */
 /*****************/
@@ -126,23 +130,28 @@ int main()
     if (scelta == 1)
     {
       insieme = acquisisci_insieme();
+      if(insieme.numero_elementi != 0){
       relazione = acquisisci_rel_bin(insieme);
       stampa(relazione);
       operazione = acquisisci_operazione(insieme);
-      chiusura = controllo_chiusura(insieme, operazione);
-      controllo_congruenza(relazione, insieme, operazione,
-                           chiusura);
+      chiusura = controllo_chiusura(insieme,
+                                    operazione);
+      controllo_congruenza(relazione,
+                            insieme,
+                            operazione,
+                            chiusura);
+      }
     }
-    if (scelta == 2)
+    if (scelta == 2 || insieme.numero_elementi == 0)
     {
       printf("\n\n ************** INSIEME");
-      printf("VUOTO **********************\n");
+      printf(" VUOTO **********************\n");
       insieme = crea_insieme_vuoto();
       printf("\n  L'insieme che si e' scelto e' vuoto,");
       printf(" quindi  qualsiasi \n  sia la relazione");
       printf(", simmetria, riflessivita' e transitivita'\n");
       printf("  sono sempre verificate.\n  Per convenzione ");
-      printf("diciamo anche che qualsiasi sia\n l'operazione");
+      printf("diciamo anche che qualsiasi sia\n  l'operazione");
       printf(" e' chiusa rispetto all'insieme");
     }
 
@@ -182,6 +191,8 @@ insieme_t acquisisci_insieme()
   int 	i;
   /*variabile contatore*/
   int 	j;
+  /*variabile per controllare la fine dell acquisizione*/
+  int controllo;
   /*variabile per terminare l'acquisizione*/
   int 	finisci_di_acquisire;
   /*variabile per verificare che la
@@ -199,9 +210,10 @@ insieme_t acquisisci_insieme()
   elemento_acquisito = 0;
   j = 0;
   i = 0;
-  temporaneo = 1;
+  temporaneo = 0;
   insieme.numero_elementi = 50;
   finisci_di_acquisire = 0;
+  controllo = 0;
 
   /*alloco memoria*/
   insieme.elementi_insieme = (double *)
@@ -220,33 +232,52 @@ insieme_t acquisisci_insieme()
 
   while (finisci_di_acquisire != 1)
   {
+    controllo = 0;
     insieme.elementi_insieme = (double *)
                                realloc (insieme.elementi_insieme,
                                         (i+1) * sizeof (double));
     printf("\n  Digitare ora il %d° elemento: ",i+1);
     elemento_acquisito = scanf("%lf",&temporaneo);
-
-    if (i >= 0)
+    if (i >= 0 && finisci_di_acquisire != 1 )
       insieme.elementi_insieme[i] = temporaneo;
 
-    for (j = i - 1; j >= 0; j--)
+    if((i == 0) && (elemento_acquisito != 1)){
+         do{
+          carattere_non_letto = getchar();
+          if((carattere_non_letto == 'a') && (controllo == 0)){
+            finisci_di_acquisire = 1;
+                  insieme.numero_elementi = i;
+          }
+          if(controllo > 1)
+            finisci_di_acquisire = 0;
+         controllo++;
+
+        }while (carattere_non_letto != '\n');
+        i--;
+    }
+
+    for (j = i-1; j >= 0; j--)
     {
       if (elemento_acquisito != 1 ||
           temporaneo == insieme.elementi_insieme[j])
       {
-          errore();
         do{
-          if(carattere_non_letto == 'a'){
-            finisci_di_acquisire = 1;
-            insieme.numero_elementi = i;
-          }
           carattere_non_letto = getchar();
+          if((carattere_non_letto == 'a') && (controllo == 0)){
+            finisci_di_acquisire = 1;
+                  insieme.numero_elementi = i;
+          }
+          if(controllo > 1)
+            finisci_di_acquisire = 0;
+         controllo++;
+
         }while (carattere_non_letto != '\n');
         i--;
         j = 0;
       }
 
     }
+
     i++;
   }
 
@@ -441,14 +472,13 @@ int acquisisci_elemento(insieme_t insieme)
 
     if (lettura_corretta != 1)
     {
-        errore();
       do
         carattere_non_letto = getchar();
       while (carattere_non_letto != '\n');
-      printf ("\n  C'e'un errore, reinserire ");
-      printf ("il termine e verificare\n");
-      printf ("  che appartenga all'insieme");
-      printf ("precedentemente inserito: \n ");
+      printf ("\n  verificare che l'elemento");
+      printf (" appartenga \n  all'insieme");
+      printf (" precedentemente inserito: \n ");
+      errore();
     }
     lettura_corretta = scanf("%lf",&elemento);
 
@@ -541,7 +571,8 @@ operazione_t acquisisci_operazione(insieme_t insieme)
   return operazione;
 }
 
-int controllo_chiusura(insieme_t insieme,operazione_t operazione)
+int controllo_chiusura(insieme_t insieme,
+                       operazione_t operazione)
 {
   int i,
       j,
@@ -760,45 +791,6 @@ int controllo_transitivita (rel_bin verifica)
 
 }
 
-
-int relazione_equivalenza (rel_bin verifica)
-{
-
-/*variabili per controllare le propieta' dell'equivalenza*/
-  int riflessivita,
-      simmetria,
-      transitivita,
-      equivalenza;
-
-  equivalenza = 0;
-  riflessivita = controllo_riflessivita(verifica);
-  simmetria = controllo_simmetria(verifica);
-  transitivita = controllo_transitivita(verifica);
-
-  if (riflessivita == 1 && simmetria == 1 && transitivita == 1)
-  {
-    printf ("\n   e' una relazione di equivalenza\n");
-    equivalenza=1;
-  }
-
-  if (riflessivita == 0)
-  {
-    printf ("\n   non e'una relazione di equivalenza ");
-    printf ("perche' non e' riflessiva\n");
-  }
-  if (simmetria == 0)
-  {
-    printf ("\n   non e'una relazione di equivalenza ");
-    printf ("perche' non e' simmetrica\n");
-  }
-  if (transitivita == 0)
-  {
-    printf ("\n   non e'una relazione di equivalenza ");
-    printf ("perche' non e' transitiva\n");
-  }
-  return equivalenza;
-}
-
 int controllo_simmetria (rel_bin verifica)
 {
     /*variabili contatore*/
@@ -844,6 +836,45 @@ int controllo_simmetria (rel_bin verifica)
   }
 
   return (simmetria);
+}
+
+
+int relazione_equivalenza (rel_bin verifica)
+{
+
+/*variabili per controllare le propieta' dell'equivalenza*/
+  int riflessivita,
+      simmetria,
+      transitivita,
+      equivalenza;
+
+  equivalenza = 0;
+  riflessivita = controllo_riflessivita(verifica);
+  simmetria = controllo_simmetria(verifica);
+  transitivita = controllo_transitivita(verifica);
+
+  if (riflessivita == 1 && simmetria == 1 && transitivita == 1)
+  {
+    printf ("\n   e' una relazione di equivalenza\n");
+    equivalenza=1;
+  }
+
+  if (riflessivita == 0)
+  {
+    printf ("\n   non e'una relazione di equivalenza ");
+    printf ("perche' non e' riflessiva\n");
+  }
+  if (simmetria == 0)
+  {
+    printf ("\n   non e'una relazione di equivalenza ");
+    printf ("perche' non e' simmetrica\n");
+  }
+  if (transitivita == 0)
+  {
+    printf ("\n   non e'una relazione di equivalenza ");
+    printf ("perche' non e' transitiva\n");
+  }
+  return equivalenza;
 }
 
 
