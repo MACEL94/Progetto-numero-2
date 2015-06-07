@@ -236,7 +236,7 @@ insieme_t acquisisci_insieme()
     insieme.elementi_insieme = (double *)
                                realloc (insieme.elementi_insieme,
                                         (i+1) * sizeof (double));
-    printf("\n  Digitare ora il %d° elemento: ",i+1);
+    printf("\n  Digitare ora il %d elemento: ",i+1);
     elemento_acquisito = scanf("%lf",&temporaneo);
     if (i >= 0 && finisci_di_acquisire != 1 )
       insieme.elementi_insieme[i] = temporaneo;
@@ -496,7 +496,7 @@ int acquisisci_elemento(insieme_t insieme)
       while (carattere_non_letto != '\n');
       printf ("\n  verificare che l'elemento");
       printf (" appartenga \n  all'insieme");
-      printf (" precedentemente inserito: \n ");
+      printf (" precedentemente inserito. \n ");
       errore();
     }
     lettura_corretta = scanf("%lf",&elemento);
