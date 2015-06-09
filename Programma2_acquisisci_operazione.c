@@ -21,6 +21,7 @@ typedef struct Operazione
   double			*risultati;
 
 } operazione_t;
+
 typedef struct RelBin
 {
   /* coppia numerica */
@@ -32,6 +33,7 @@ typedef struct RelBin
 
   int dimensione;
 } rel_bin;
+
 typedef struct Insieme
 {
   double* elementi_insieme;
@@ -59,7 +61,7 @@ void controllo_congruenza(rel_bin,
                           operazione_t,
                           int);
 void errore(void);
-void svuota_buffer(void);
+char svuota_buffer(void);
 /*****************/
 /* funzione main */
 /*****************/
@@ -126,7 +128,7 @@ int main()
 
     if (scelta == 1)
     {
-      svuota_buffer();
+
       insieme = acquisisci_insieme();
       if(insieme.numero_elementi != 0)
       {
@@ -187,6 +189,8 @@ insieme_t acquisisci_insieme()
 
   /*variabile contatore */
   int 	i;
+  /*variabile per il controllo di doppioni*/
+  int buffer_vuoto;
   /*variabile contatore*/
   int 	j;
   /*variabile per controllare la fine dell acquisizione*/
@@ -211,7 +215,7 @@ insieme_t acquisisci_insieme()
   insieme.numero_elementi = 50;
   finisci_di_acquisire = 0;
   controllo = 0;
-
+  buffer_vuoto = 1;
   /*alloco memoria*/
   insieme.elementi_insieme = (double *)
                              malloc (insieme.numero_elementi);
@@ -234,6 +238,11 @@ insieme_t acquisisci_insieme()
                                realloc (insieme.elementi_insieme,
                                         (i+1) * sizeof (double));
     printf("\n  Digitare ora il %d elemento: ",i+1);
+
+    if(buffer_vuoto != 1)
+    svuota_buffer();
+
+    buffer_vuoto = 0;
     elemento_acquisito = scanf("%lf",&temporaneo);
     if (i >= 0 && finisci_di_acquisire != 1 )
       insieme.elementi_insieme[i] = temporaneo;
@@ -248,8 +257,9 @@ insieme_t acquisisci_insieme()
           finisci_di_acquisire = 1;
           insieme.numero_elementi = i;
         }
+
         if(controllo > 1)
-          finisci_di_acquisire = 0;
+        finisci_di_acquisire = 0;
         controllo++;
 
       }
@@ -261,9 +271,12 @@ insieme_t acquisisci_insieme()
     {
       if (elemento_acquisito != 1 ||
           temporaneo == insieme.elementi_insieme[j])
+
       {
-        do
-        {
+
+        if(temporaneo != insieme.elementi_insieme[j]){
+            buffer_vuoto = 1;
+        do{
           carattere_non_letto = getchar();
           if((carattere_non_letto == 'a') && (controllo == 0))
           {
@@ -273,15 +286,14 @@ insieme_t acquisisci_insieme()
           if(controllo > 1)
             finisci_di_acquisire = 0;
           controllo++;
-
+        }while (carattere_non_letto != '\n');
         }
-        while (carattere_non_letto != '\n');
+
         i--;
         j = 0;
       }
 
     }
-
     i++;
   }
 
@@ -987,11 +999,13 @@ void errore()
   printf("\n  inserire un valore corretto: ");
 }
 
-void svuota_buffer()
+char svuota_buffer()
 {
   /*variabile per svuotare il buffer*/
   char carattere_non_letto;
-  do
+  do{
     carattere_non_letto = getchar();
-  while (carattere_non_letto != '\n');
+  }while (carattere_non_letto != '\n');
+
+  return carattere_non_letto;
 }
