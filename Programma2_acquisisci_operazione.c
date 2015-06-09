@@ -126,6 +126,7 @@ int main()
 
     if (scelta == 1)
     {
+      svuota_buffer();
       insieme = acquisisci_insieme();
       if(insieme.numero_elementi != 0)
       {
@@ -142,6 +143,7 @@ int main()
     }
     if (scelta == 2 || insieme.numero_elementi == 0)
     {
+
       printf("\n\n ************** INSIEME");
       printf(" VUOTO **********************\n");
       insieme = crea_insieme_vuoto();
@@ -169,7 +171,6 @@ int main()
     while (lettura_effettuata != 1 || (ripeti != 1 && ripeti != 2));
   }
 
-  svuota_buffer();
   return 0;
 }
 
@@ -203,7 +204,6 @@ insieme_t acquisisci_insieme()
   double temporaneo;
 
   /*inizializzo le variabili*/
-  svuota_buffer();
   elemento_acquisito = 0;
   j = 0;
   i = 0;
@@ -869,7 +869,7 @@ int relazione_equivalenza (rel_bin verifica)
   if (riflessivita == 1 && simmetria == 1 && transitivita == 1)
   {
     printf ("\n  E' una relazione di equivalenza\n");
-    equivalenza=1;
+    equivalenza = 1;
   }
 
   if (riflessivita == 0)
@@ -906,21 +906,22 @@ void controllo_congruenza(rel_bin relazione,
       i,
       j,
       k;
-    if(relazione.dimensione != 0)
-		equivalenza = relazione_equivalenza(relazione);
-    else{
-    	printf("\n\n  La relazione vuota ");
-    	printf("non e' una relazione di equivalenza");
-    	equivalenza = 0;
-    }
+  if(relazione.dimensione != 0)
+    equivalenza = relazione_equivalenza(relazione);
+  else
+  {
+    printf("\n\n  La relazione vuota ");
+    printf("non e' una relazione di equivalenza");
+    equivalenza = 0;
+  }
   i = 0;
   j = 0;
   k = 0;
-  controllo=1;
+  controllo = 1;
 
   for (i = 0; i<relazione.dimensione; i++)
   {
-    for (j=0;
+    for (j = 0;
          j<(insieme.numero_elementi*insieme.numero_elementi);
          j++)
     {
@@ -988,9 +989,9 @@ void errore()
 
 void svuota_buffer()
 {
-    /*variabile per svuotare il buffer*/
-    char carattere_non_letto;
-    do
+  /*variabile per svuotare il buffer*/
+  char carattere_non_letto;
+  do
     carattere_non_letto = getchar();
-    while (carattere_non_letto != '\n');
+  while (carattere_non_letto != '\n');
 }
