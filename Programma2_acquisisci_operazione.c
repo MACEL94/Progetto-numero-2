@@ -96,6 +96,8 @@ void errore()
 {
   printf("\n\n  hai inserito un valore errato");
   printf("\n  inserire un valore corretto: ");
+
+  return;
 }
 
 /*funzione per poter pulire il buffer*/
@@ -112,23 +114,25 @@ void svuota_buffer()
   return;
 }
 
-void informazioni_sul_programma(){
-    printf("\n **************************************");
-    printf("*************************\n");
-    printf("\n  Questo programma acquisisce nel seguente");
-    printf(" ordine:\n");
-    printf("\n  1) Un insieme;\n  2) Una relazione binaria su ");
-    printf("quell'insieme;\n  3) Un'operazione binaria su quell");
-    printf("'insieme.\n\n  Poi verifica se l'insieme e' chiuso ");
-    printf("rispetto all'operazione \n ");
-    printf(" e se la relazione e' una");
-    printf(" congruenza rispetto all'operazione.\n");
+void informazioni_sul_programma()
+{
+  printf("\n **************************************");
+  printf("*************************\n");
+  printf("\n  Questo programma acquisisce nel seguente");
+  printf(" ordine:\n");
+  printf("\n  1) Un insieme;\n  2) Una relazione binaria su ");
+  printf("quell'insieme;\n  3) Un'operazione binaria su quell");
+  printf("'insieme.\n\n  Poi verifica se l'insieme e' chiuso ");
+  printf("rispetto all'operazione \n ");
+  printf(" e se la relazione e' una");
+  printf(" congruenza rispetto all'operazione.\n");
 
-    return;
+  return;
 }
 
-void scelta_operazione(){
- /*variabile per il controllo della scelta*/
+void scelta_operazione()
+{
+  /*variabile per il controllo della scelta*/
   int scelta;
   /*variabile per controllare che la
   lettura sia avvenuta correttamente*/
@@ -148,86 +152,87 @@ void scelta_operazione(){
   lettura_effettuata = 0;
   chiusura = 1;
 
-printf("\n **********************************");
-    printf("*****************************\n");
-    printf("\n\n  Digitare:\n   1 - se si vuole iniziare con");
-    printf(" l'acquisizione dell'insieme,\n   2 - se si vuole ");
-    printf("inserire l'insieme vuoto,");
-    printf("\n   3 - se si vogliono avere ");
-    printf("informazioni sul programma ");
-    printf("\n   4 - terminare il programma: ");
+  printf("\n **********************************");
+  printf("*****************************\n");
+  printf("\n\n  Digitare:\n   1 - se si vuole iniziare con");
+  printf(" l'acquisizione dell'insieme,\n   2 - se si vuole ");
+  printf("inserire l'insieme vuoto,");
+  printf("\n   3 - se si vogliono avere ");
+  printf("informazioni sul programma ");
+  printf("\n   4 - terminare il programma: ");
 
-    do
+  do
+  {
+    lettura_effettuata = scanf("%d",&scelta);
+    if (lettura_effettuata != 1)
     {
-      lettura_effettuata = scanf("%d",&scelta);
-      if (lettura_effettuata != 1)
-      {
-        errore();
-        svuota_buffer();
-        scelta=4;
-      }
+      errore();
+      svuota_buffer();
+      scelta=4;
     }
-    while ((scelta != 1 && scelta != 2
-            && scelta != 3) || lettura_effettuata != 1);
+  }
+  while ((scelta != 1 && scelta != 2
+          && scelta != 3) || lettura_effettuata != 1);
 
-    if (scelta == 1)
+  if (scelta == 1)
+  {
+
+    insieme = acquisisci_insieme();
+    stampa_insieme(insieme);
+    if(insieme.numero_elementi != 0)
     {
-
-      insieme = acquisisci_insieme();
-      stampa_insieme(insieme);
-      if(insieme.numero_elementi != 0)
-      {
-        relazione = acquisisci_rel_bin(insieme);
-        stampa_rel_bin(relazione);
-        operazione = acquisisci_operazione(insieme);
-        chiusura = controllo_chiusura(insieme,
-                                      operazione);
-        controllo_congruenza(relazione,
-                             insieme,
-                             operazione,
-                             chiusura);
-      }
+      relazione = acquisisci_rel_bin(insieme);
+      stampa_rel_bin(relazione);
+      operazione = acquisisci_operazione(insieme);
+      chiusura = controllo_chiusura(insieme,
+                                    operazione);
+      controllo_congruenza(relazione,
+                           insieme,
+                           operazione,
+                           chiusura);
     }
-    if (scelta == 2 || insieme.numero_elementi == 0)
-    {
+  }
+  if (scelta == 2 || insieme.numero_elementi == 0)
+  {
 
-      printf("\n\n ************** INSIEME");
-      printf(" VUOTO **********************\n");
-      insieme = crea_insieme_vuoto();
-      printf("\n  L'insieme che si e' scelto e' vuoto,");
-      printf(" quindi  qualsiasi \n  sia la relazione");
-      printf(", simmetria, riflessivita' e transitivita'\n");
-      printf("  sono sempre verificate.\n  Per convenzione ");
-      printf("diciamo anche che qualsiasi sia\n  l'operazione");
-      printf(" e' chiusa rispetto all'insieme");
-    }
+    printf("\n\n ************** INSIEME");
+    printf(" VUOTO **********************\n");
+    insieme = crea_insieme_vuoto();
+    printf("\n  L'insieme che si e' scelto e' vuoto,");
+    printf(" quindi  qualsiasi \n  sia la relazione");
+    printf(", simmetria, riflessivita' e transitivita'\n");
+    printf("  sono sempre verificate.\n  Per convenzione ");
+    printf("diciamo anche che qualsiasi sia\n  l'operazione");
+    printf(" e' chiusa rispetto all'insieme");
+  }
 
-    if(scelta == 3)
-        informazioni_sul_programma();
+  if(scelta == 3)
+    informazioni_sul_programma();
 
-    return;
+  return;
 }
 
-int ripeti(){
-int ripetere;
-int lettura_effettuata;
-    printf("\n\n  Digitare:\n   1 - se si vuole eseguire");
-    printf(" un altra operazione,");
-    printf("\n   2 - se si vuole uscire: ");
-    do
+int ripeti()
+{
+  int ripetere;
+  int lettura_effettuata;
+  printf("\n\n  Digitare:\n   1 - se si vuole eseguire");
+  printf(" un altra operazione,");
+  printf("\n   2 - se si vuole uscire: ");
+  do
+  {
+    lettura_effettuata = scanf("%d",&ripetere);
+    if (lettura_effettuata != 1 )
     {
-      lettura_effettuata = scanf("%d",&ripetere);
-      if (lettura_effettuata != 1 )
-      {
-        errore();
-        svuota_buffer();
-        ripetere = 1;
-      }
+      errore();
+      svuota_buffer();
+      ripetere = 1;
     }
-    while (lettura_effettuata != 1 || (ripetere != 1 && ripetere != 2));
+  }
+  while (lettura_effettuata != 1 || (ripetere != 1 && ripetere != 2));
 
 
-return (ripetere);
+  return (ripetere);
 }
 
 
@@ -365,7 +370,7 @@ void stampa_insieme(insieme_t insieme)
   }
   printf(" }\n\n");
 
-    return;
+  return;
 }
 
 insieme_t crea_insieme_vuoto()
