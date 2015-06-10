@@ -53,10 +53,10 @@ rel_bin acquisisci_rel_bin(insieme_t);
 int acquisisci_elemento(insieme_t);
 void stampa_rel_bin(rel_bin);
 operazione_t acquisisci_operazione(insieme_t);
-int controllo_simmetria (rel_bin);
-int controllo_riflessivita (rel_bin);
-int controllo_transitivita (rel_bin);
-int relazione_equivalenza (rel_bin);
+int controllo_simmetria(rel_bin);
+int controllo_riflessivita(rel_bin);
+int controllo_transitivita(rel_bin);
+int relazione_equivalenza(rel_bin);
 int controllo_chiusura(insieme_t,
                        operazione_t);
 void controllo_congruenza(rel_bin,
@@ -182,7 +182,7 @@ void scelta_operazione()
 
     insieme = acquisisci_insieme();
     stampa_insieme(insieme);
-    if(insieme.numero_elementi != 0)
+    if (insieme.numero_elementi != 0)
     {
       relazione = acquisisci_rel_bin(insieme);
       stampa_rel_bin(relazione);
@@ -209,7 +209,7 @@ void scelta_operazione()
     printf(" e' chiusa rispetto all'insieme");
   }
 
-  if(scelta == 3)
+  if (scelta == 3)
     informazioni_sul_programma();
 
   return;
@@ -303,7 +303,7 @@ insieme_t acquisisci_insieme()
                                         (i+1) * sizeof (double));
     printf("\n  Digitare ora il %d elemento: ",i+1);
     /*svuoto il buffer prima di acquisire*/
-    if(buffer_vuoto != 1)
+    if (buffer_vuoto != 1)
       svuota_buffer();
 
     buffer_vuoto = 0;
@@ -312,19 +312,19 @@ insieme_t acquisisci_insieme()
       insieme.elementi_insieme[i] = temporaneo;
 
     /*controllo se c'e' stato un errore nell'acquisizione*/
-    if(elemento_acquisito != 1)
+    if (elemento_acquisito != 1)
     {
       do
       {
         carattere_non_letto = getchar();
         /*controllo se l utente ha digitato il carattere di terminazione*/
-        if((carattere_non_letto == 'a') && (controllo == 0))
+        if ((carattere_non_letto == 'a') && (controllo == 0))
         {
           finisci_di_acquisire = 1;
           insieme.numero_elementi = i;
         }
         /*controllo che mi permette di verificare se e' stato digitato solo un carattere */
-        if(controllo > 1)
+        if (controllo > 1)
           finisci_di_acquisire = 0;
         controllo++;
 
@@ -422,8 +422,8 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
       svuota_buffer();
     }
   }
-  while(risultato_lettura != 1  || relazione_vuota != 0 && relazione_vuota != 1);
-  if(relazione_vuota == 0)
+  while (risultato_lettura != 1  || relazione_vuota != 0 && relazione_vuota != 1);
+  if (relazione_vuota == 0)
     printf("  si e' scelto di inserire una relazione vuota");
 
   /*inizializzo le variabili*/
@@ -433,7 +433,7 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
   /*alloco memoria*/
   relazione.primo_termine = (double *) malloc (2);
   relazione.secondo_termine = (double *) malloc (2);
-  if(relazione_vuota == 1)
+  if (relazione_vuota == 1)
   {
     while (acquisizione_finita == 1)
     {
@@ -690,7 +690,7 @@ int controllo_chiusura(insieme_t insieme,
   return (chiusura);
 }
 
-int controllo_riflessivita (rel_bin verifica)
+int controllo_riflessivita(rel_bin verifica)
 {
   /*variabile contatore*/
   int i,
@@ -805,7 +805,7 @@ int controllo_riflessivita (rel_bin verifica)
   return (riflessivita);
 }
 
-int controllo_transitivita (rel_bin verifica)
+int controllo_transitivita(rel_bin verifica)
 {
   /*variabile contatore*/
   int i,
@@ -873,7 +873,7 @@ int controllo_transitivita (rel_bin verifica)
 
 }
 
-int controllo_simmetria (rel_bin verifica)
+int controllo_simmetria(rel_bin verifica)
 {
   /*variabili contatore*/
   int i,
@@ -921,7 +921,7 @@ int controllo_simmetria (rel_bin verifica)
 }
 
 
-int relazione_equivalenza (rel_bin verifica)
+int relazione_equivalenza(rel_bin verifica)
 {
 
   /*variabili per controllare le propieta' dell'equivalenza*/
@@ -975,7 +975,7 @@ void controllo_congruenza(rel_bin relazione,
       i,
       j,
       k;
-  if(relazione.dimensione != 0)
+  if (relazione.dimensione != 0)
     equivalenza = relazione_equivalenza(relazione);
   else
   {
