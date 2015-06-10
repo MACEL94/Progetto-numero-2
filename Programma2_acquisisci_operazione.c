@@ -66,6 +66,7 @@ void controllo_congruenza(rel_bin,
 void informazioni_sul_programma(void);
 void scelta_operazione(void);
 int ripeti(void);
+
 /*****************/
 /* funzione main */
 /*****************/
@@ -114,6 +115,7 @@ void svuota_buffer()
   return;
 }
 
+/*informazioni sul programma*/
 void informazioni_sul_programma()
 {
   printf("\n **************************************");
@@ -130,6 +132,7 @@ void informazioni_sul_programma()
   return;
 }
 
+/*Funzione per chiedere all'utente cosa vuole fare*/
 void scelta_operazione()
 {
   /*variabile per il controllo della scelta*/
@@ -212,6 +215,8 @@ void scelta_operazione()
   return;
 }
 
+
+/*Funzione per ripetere il procedimento*/
 int ripeti()
 {
   int ripetere;
