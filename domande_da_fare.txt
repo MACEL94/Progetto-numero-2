@@ -2,3 +2,4 @@ Ha senso acquisire una relazione binaria che contiene elementi che non apparteng
 
 Ha senso inserire un insieme vuoto? --> non  ci potrebbero poi essere relazioni su di questo.
 
+dferferferer
