@@ -156,7 +156,7 @@ void scelta_operazione()
   chiusura = 1;
 
   printf("\n **********************************");
-  printf("*****************************\n");
+  printf("*****************************");
   printf("\n\n  Digitare:\n   1 - se si vuole iniziare con");
   printf(" l'acquisizione dell'insieme,\n   2 - se si vuole ");
   printf("inserire l'insieme vuoto,");
@@ -198,7 +198,7 @@ void scelta_operazione()
   if (scelta == 2 || insieme.numero_elementi == 0)
   {
 
-    printf("\n\n ************** INSIEME");
+    printf("\n ************** INSIEME");
     printf(" VUOTO **********************\n");
     insieme = crea_insieme_vuoto();
     printf("\n  L'insieme che si e' scelto e' vuoto,");
