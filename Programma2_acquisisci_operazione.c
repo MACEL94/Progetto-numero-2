@@ -162,7 +162,7 @@ void scelta_operazione()
   printf("inserire l'insieme vuoto,");
   printf("\n   3 - se si vogliono avere ");
   printf("informazioni sul programma ");
-  printf("\n   4 - terminare il programma: ");
+  printf("\n   4 - uscire da questo menu': ");
 
   do
   {
@@ -175,7 +175,7 @@ void scelta_operazione()
     }
   }
   while ((scelta != 1 && scelta != 2
-          && scelta != 3) || lettura_effettuata != 1);
+          && scelta != 3 && scelta != 4) || lettura_effettuata != 1);
 
   if (scelta == 1)
   {
@@ -223,7 +223,7 @@ int ripeti()
   int lettura_effettuata;
   printf("\n\n  Digitare:\n   1 - se si vuole eseguire");
   printf(" un altra operazione,");
-  printf("\n   2 - se si vuole uscire: ");
+  printf("\n   2 - se si vuole terminare il programma: ");
   do
   {
     lettura_effettuata = scanf("%d",&ripetere);
