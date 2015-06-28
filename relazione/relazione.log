@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  28 JUN 2015 23:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  29 JUN 2015 00:11
 entering extended mode
 **relazione.tex
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.tex
@@ -449,9 +449,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--114
  []
 
 [3]
-(C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\Programma2_acquisisci_op
-erazione.c [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
-[18] [19] [20] [21] [22] [23] [24]) [25]
+(C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\Progetto_sessione_estiva
+_PPL.c [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+[19] [20] [21] [22] [23] [24]) [25]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
@@ -625,8 +625,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--187
  ) 
 Here is how much of TeX's memory you used:
  4754 strings out of 493921
- 65917 string characters out of 3144865
- 243139 words of memory out of 3000000
+ 65905 string characters out of 3144865
+ 240135 words of memory out of 3000000
  7989 multiletter control sequences out of 15000+200000
  10994 words of font info for 39 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -640,7 +640,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on relazione.pdf (35 pages, 613638 bytes).
+Output written on relazione.pdf (35 pages, 613871 bytes).
 PDF statistics:
  161 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
