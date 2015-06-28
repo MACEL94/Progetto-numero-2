@@ -1,4 +1,4 @@
-﻿\documentclass[11pt,a4paper,titlepage,block]{article}
+\documentclass[11pt,a4paper,titlepage,block]{article}
 \usepackage{listings}
 \usepackage{graphicx}
 \hyphenpenalty=10000
@@ -175,6 +175,30 @@ Verifico la presenza di errori durante l'acquisizione della relazione.\\
 \newpage
 Acquisisco l'insieme vuoto.\\
 \includegraphics[width=3in,height=3in,viewport=0 0 300 300]{../Screenshots/Capture13.JPG}\\
+\newpage
+\section{Verifica del programma}
+Di seguito viene verificata la correttezza di una parte del programma attraverso l'utilizzo di una tripla di Hoare.
+Si dice tripla di Hoare una tripla nella seguente forma: $\lbrace$Q$\rbrace$ S $\lbrace$R$\rbrace$\\
+Dove Q è un predicato detto precondizione, S è un'istruzione ed R è un predicato detto postcondizione. La tripla è vera se e solo se l'esecuzione dell'istruzione S inizia in uno stato della computazione in cui Q è soddisfatta, e termina raggiungendo uno stato della computazione in cui R è soddisfatta.\\
+\\
+Istruzione selezionata:\\
+i=0;\\
+if (riscontro != 0)
+\begin{verbatim}
+{
+   i++;
+}
+\end{verbatim}
+sia riscontro $\not$=  0   $\lor$ riscontro == 0\\
+wp(S,R) = (($\beta\rightarrow$  wp(S,R)) $\wedge$ (($\lnot\beta$ )  wp(S,R)))\\
+R =$>$ (i = 0) $\lor$ (i = 1)\\
+P =$>$ ((riscontro $\not$= 0) $\rightarrow$ ((i	 = 1) $\lor$ (i = 0))\\
+((riscontro == 0) $\rightarrow$ ((i = 1) $\lor$ (i = 0))
+\\ovvero:\\
+((riscontro $\not$= 0) $\rightarrow$ ((i	 = 1) $\lor$ (i = 0)) = Vero\\
+((riscontro == 0) $\rightarrow$ ((i = 1) $\lor$ (i = 0)) = Vero\\
+(Vero $\wedge$ Vero) = Vero
+ 
 \end{document}
 
 \section{Verifica del programma}
