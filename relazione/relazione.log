@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  28 JUN 2015 23:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.7)  28 JUN 2015 23:32
 entering extended mode
 **relazione.tex
 (C:\Users\Francesco\Documents\GitHub\Progetto-numero-2\relazione\relazione.tex
@@ -529,7 +529,7 @@ File: ../Screenshots/Capture7.JPG Graphic file (type jpg)
 Package pdftex.def Info: ../Screenshots/Capture7.JPG used on input line 158.
 (pdftex.def)             Requested size: 216.80577pt x 216.80577pt.
 
-<../Screenshots/Capture8.JPG, id=108, 402.00188pt x 254.45062pt>
+<../Screenshots/Capture8.JPG, id=108, 396.7322pt x 156.585pt>
 File: ../Screenshots/Capture8.JPG Graphic file (type jpg)
 
 <use ../Screenshots/Capture8.JPG>
@@ -552,7 +552,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--163
 
 [29 <C:/Users/Francesco/Documents/GitHub/Progetto-numero-2/Screenshots/Capture7
 .JPG> <C:/Users/Francesco/Documents/GitHub/Progetto-numero-2/Screenshots/Captur
-e8.JPG>] <../Screenshots/Capture9.JPG, id=113, 405.01312pt x 262.73157pt>
+e8.JPG>] <../Screenshots/Capture9.JPG, id=113, 390.70969pt x 178.41656pt>
 File: ../Screenshots/Capture9.JPG Graphic file (type jpg)
 
 <use ../Screenshots/Capture9.JPG>
@@ -640,7 +640,7 @@ ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on relazione.pdf (35 pages, 671812 bytes).
+Output written on relazione.pdf (35 pages, 613638 bytes).
 PDF statistics:
  161 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
