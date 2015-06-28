@@ -95,8 +95,8 @@ int main()
 /*funzione per poter riportare un segnale di errore dopo un acquisizione da tastiera errata*/
 void errore()
 {
-  printf("\n\n  hai inserito un valore errato");
-  printf("\n  inserire un valore corretto: ");
+  printf("\n\n  Hai inserito un valore errato.");
+  printf("\n  Inserire un valore corretto: ");
 
   return;
 }
@@ -167,14 +167,17 @@ void scelta_operazione()
   do
   {
     lettura_effettuata = scanf("%d",&scelta);
-    if (lettura_effettuata != 1)
+    if ((lettura_effettuata != 1)
+      || (scelta != 1 && scelta != 2
+      && scelta != 3 && scelta != 4)
+      || (lettura_effettuata != 1))
     {
       errore();
       svuota_buffer();
-      scelta=4;
+      scelta=5;
     }
-  }
-  while ((scelta != 1 && scelta != 2
+
+  }while ((scelta != 1 && scelta != 2
           && scelta != 3 && scelta != 4) || lettura_effettuata != 1);
 
   if (scelta == 1)
@@ -221,17 +224,19 @@ int ripeti()
 {
   int ripetere;
   int lettura_effettuata;
+
+  ripetere = 0;
+
   printf("\n\n  Digitare:\n   1 - se si vuole eseguire");
   printf(" un altra operazione,");
   printf("\n   2 - se si vuole terminare il programma: ");
   do
   {
     lettura_effettuata = scanf("%d",&ripetere);
-    if (lettura_effettuata != 1 )
+    if (lettura_effettuata != 1 || (ripetere != 1 && ripetere != 2))
     {
       errore();
       svuota_buffer();
-      ripetere = 1;
     }
   }
   while (lettura_effettuata != 1 || (ripetere != 1 && ripetere != 2));
@@ -416,13 +421,13 @@ rel_bin acquisisci_rel_bin(insieme_t insieme)
   do
   {
     risultato_lettura = scanf("%d",&relazione_vuota);
-    if (risultato_lettura != 1 || relazione_vuota != 0 && relazione_vuota != 1 )
+    if ((risultato_lettura != 1 || relazione_vuota != 0) && relazione_vuota != 1)
     {
       errore();
       svuota_buffer();
     }
   }
-  while (risultato_lettura != 1  || relazione_vuota != 0 && relazione_vuota != 1);
+  while ((risultato_lettura != 1  || relazione_vuota != 0) && relazione_vuota != 1);
   if (relazione_vuota == 0)
     printf("  si e' scelto di inserire una relazione vuota");
 
@@ -559,7 +564,7 @@ int acquisisci_elemento(insieme_t insieme)
     if (lettura_corretta != 1)
     {
       svuota_buffer();
-      printf ("\n  verificare che l'elemento");
+      printf ("\n  Verificare che l'elemento");
       printf (" appartenga \n  all'insieme");
       printf (" precedentemente inserito. \n ");
       errore();
